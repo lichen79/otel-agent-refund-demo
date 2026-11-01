@@ -2,6 +2,29 @@
 
 Companion demo for the VIDEU video **[OpenTelemetry for AI Agents: Tracing a Refund That Never Happened](https://youtu.be/gkkQckL573E)**.
 
+<p align="center">
+  <a href="https://youtu.be/gkkQckL573E">
+    <img src="assets/video-thumbnail.png" alt="OpenTelemetry for AI Agents — Tracing a Refund That Never Happened" width="720">
+  </a>
+</p>
+
+## What the trace shows
+
+<p align="center">
+  <img src="assets/title.png" alt="Ticket T-5521 — order NW-1042 arrived with a cracked screen" width="720">
+</p>
+
+The agent's reply says the refund was issued; the trace and the ledger say otherwise.
+
+<p align="center">
+  <img src="assets/trace-labeled.png" alt="Fault trace — 33 spans, 5 services, 10 error spans" width="720">
+</p>
+
+<p align="center">
+  <img src="assets/trace-fault-waterfall.png" alt="Fault run waterfall — trace 0b54886c…ec77" width="720">
+</p>
+
+
 A support agent handles one refund ticket with a real model and real tools. Five processes
 (the agent and four HTTP services) are instrumented with the OpenTelemetry Python SDK and
 write their spans to JSON files; W3C `traceparent` carries one trace ID across every hop.
