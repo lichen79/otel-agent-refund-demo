@@ -10,11 +10,11 @@ Companion demo for the VIDEU video **[OpenTelemetry for AI Agents: Tracing a Ref
 
 ## What the trace shows
 
-<p align="center">
-  <img src="assets/title.png" alt="Ticket T-5521 — order NW-1042 arrived with a cracked screen" width="720">
-</p>
-
-The agent's reply says the refund was issued; the trace and the ledger say otherwise.
+Ticket `T-5521` from Ana: "My order NW-1042 arrived today with a cracked screen. Can I get my
+money back?" — one `Tablet 8-inch`, €49.90. The support agent looks it up, issues the refund,
+emails her, and replies **"All set, Ana! I've refunded the full €49.90."** A second model grades
+the conversation: score 1, pass. But the payments ledger settled **zero** refunds for that order —
+the money never moved. The trace below is where the failure happened and where it was swallowed.
 
 <p align="center">
   <img src="assets/trace-labeled.png" alt="Fault trace — 33 spans, 5 services, 10 error spans" width="720">
