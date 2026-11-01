@@ -1,0 +1,2584 @@
+{
+ "generated": "2026-10-23T00:27:59+02:00",
+ "model": "kimi-k3",
+ "endpoint": "local Anthropic-compatible endpoint (http://127.0.0.1:4000) serving Kimi K3",
+ "featured": {
+  "healthy": {
+   "run": 1,
+   "final": "All set, Ana! I've issued a full refund of €49.90 for order NW-1042 back to your original payment method, and the refund is already settled. You don't need to return the damaged tablet, and a confirmation email is on its way to you. Sorry again for the inconvenience — is there anything else I can help with?",
+   "judge": {
+    "events": [
+     {
+      "name": "gen_ai.evaluation.result",
+      "attrs": {
+       "gen_ai.evaluation.name": "transcript_judge",
+       "gen_ai.evaluation.score.value": 1.0,
+       "gen_ai.evaluation.score.label": "pass",
+       "gen_ai.evaluation.explanation": "The agent verified the order, issued a full refund of €49.90 matching the order total, notified the customer, and clearly confirmed the resolution in the reply.",
+       "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3Bfd3lyaWt3NDVyZXR0ZXl5ZWp2MjJ3ZnhmamRxNjZyamNtcmhuY29iY3l6bGtud2RpbGZvYQ=="
+      }
+     }
+    ]
+   },
+   "refundIssued": true,
+   "toolResults": [
+    {
+     "tool": "lookup_order",
+     "result": {
+      "order_id": "NW-1042",
+      "customer": {
+       "id": "cus_311",
+       "name": "Ana Ruiz",
+       "email": "ana.ruiz@example.com"
+      },
+      "items": [
+       {
+        "sku": "TAB-8",
+        "name": "Tablet 8-inch",
+        "qty": 1,
+        "price": 49.9
+       }
+      ],
+      "total": 49.9,
+      "currency": "EUR",
+      "payment_id": "pay_8812",
+      "status": "delivered",
+      "delivered_at": "2026-10-20"
+     }
+    },
+    {
+     "tool": "issue_refund",
+     "result": {
+      "refund_id": "re_e9d4134b83",
+      "status": "settled",
+      "amount": 49.9,
+      "currency": "EUR"
+     }
+    },
+    {
+     "tool": "notify_customer",
+     "result": {
+      "message_id": "msg_ee6909fd8f",
+      "status": "sent"
+     }
+    }
+   ],
+   "tokens": {
+    "input": 3903,
+    "cacheRead": 2434,
+    "output": 862
+   },
+   "modelCalls": 6,
+   "traceId": "ab2cbf81484c8c73de9538d97e214fc7",
+   "spanCount": 28,
+   "services": [
+    "notify-svc",
+    "orders-svc",
+    "payments-svc",
+    "refunds-svc",
+    "support-agent"
+   ],
+   "ticketMs": 8677.0,
+   "errorSpanCount": 0,
+   "errorSpansByService": {},
+   "rootCauses": [],
+   "propagation": [],
+   "maskedAt": null,
+   "latencyByBucket": [
+    {
+     "bucket": "model",
+     "ms": 8543.3,
+     "share": 0.985
+    },
+    {
+     "bucket": "support-agent",
+     "ms": 53.9,
+     "share": 0.006
+    },
+    {
+     "bucket": "refunds-svc",
+     "ms": 39.2,
+     "share": 0.005
+    },
+    {
+     "bucket": "notify-svc",
+     "ms": 33.6,
+     "share": 0.004
+    },
+    {
+     "bucket": "payments-svc",
+     "ms": 4.8,
+     "share": 0.001
+    },
+    {
+     "bucket": "orders-svc",
+     "ms": 2.3,
+     "share": 0.0
+    }
+   ],
+   "tools": [
+    {
+     "tool": "lookup_order",
+     "durMs": 6.0,
+     "status": "OK"
+    },
+    {
+     "tool": "issue_refund",
+     "durMs": 53.3,
+     "status": "OK"
+    },
+    {
+     "tool": "notify_customer",
+     "durMs": 1667.6,
+     "status": "OK"
+    }
+   ],
+   "modelRequests": [
+    {
+     "service": "support-agent",
+     "durMs": 2658.3,
+     "in": 464,
+     "cacheRead": 457,
+     "out": 195,
+     "under": "anthropic.messages.tool_runner"
+    },
+    {
+     "service": "support-agent",
+     "durMs": 1566.7,
+     "in": 670,
+     "cacheRead": 457,
+     "out": 136,
+     "under": "anthropic.messages.tool_runner"
+    },
+    {
+     "service": "support-agent",
+     "durMs": 1642.5,
+     "in": 864,
+     "cacheRead": 663,
+     "out": 135,
+     "under": "anthropic.messages.tool_runner"
+    },
+    {
+     "service": "notify-svc",
+     "durMs": 1613.0,
+     "in": 157,
+     "cacheRead": 0,
+     "out": 211,
+     "under": "POST /notifications"
+    },
+    {
+     "service": "support-agent",
+     "durMs": 1062.9,
+     "in": 1044,
+     "cacheRead": 857,
+     "out": 85,
+     "under": "anthropic.messages.tool_runner"
+    },
+    {
+     "service": "support-agent",
+     "durMs": 1580.8,
+     "in": 704,
+     "cacheRead": 0,
+     "out": 100,
+     "under": "evaluate transcript_judge"
+    }
+   ],
+   "paymentsAttempts": [
+    {
+     "durMs": 8.7,
+     "status": "UNSET",
+     "errorType": null,
+     "resend": 0
+    }
+   ],
+   "outcome": {
+    "refundIssued": true,
+    "status": "UNSET",
+    "events": [
+     {
+      "name": "gen_ai.evaluation.result",
+      "attrs": {
+       "gen_ai.evaluation.name": "refund_settled",
+       "gen_ai.evaluation.score.value": 1.0,
+       "gen_ai.evaluation.score.label": "pass",
+       "gen_ai.evaluation.explanation": "payments-svc holds 1 settlement(s) for NW-1042",
+       "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3Bfd3lyaWt3NDVyZXR0ZXl5ZWp2MjJ3ZnhmamRxNjZyamNtcmhuY29iY3l6bGtud2RpbGZvYQ=="
+      }
+     }
+    ]
+   },
+   "traceparentSample": "00-ab2cbf81484c8c73de9538d97e214fc7-2d217e75f673aa54-03",
+   "traceIdsInHeaders": [
+    "ab2cbf81484c8c73de9538d97e214fc7"
+   ],
+   "waterfall": [
+    {
+     "id": "f0d4fc6037a6f6a1",
+     "parent": null,
+     "name": "handle_ticket",
+     "service": "support-agent",
+     "kind": "SERVER",
+     "depth": 0,
+     "startMs": 0.0,
+     "durMs": 8677.0,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "order.id": "NW-1042"
+     },
+     "events": []
+    },
+    {
+     "id": "d9f429387dbb938f",
+     "parent": "f0d4fc6037a6f6a1",
+     "name": "anthropic.messages.tool_runner",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 1,
+     "startMs": 0.2,
+     "durMs": 8676.6,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "invoke_agent",
+      "gen_ai.request.model": "kimi-k3"
+     },
+     "events": []
+    },
+    {
+     "id": "ae2e049df45b8f79",
+     "parent": "d9f429387dbb938f",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 13.5,
+     "durMs": 2658.3,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 464,
+      "gen_ai.usage.cache_read.input_tokens": 457,
+      "gen_ai.usage.output_tokens": 195,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "tool_use"
+     },
+     "events": []
+    },
+    {
+     "id": "1937d9c57359d76e",
+     "parent": "d9f429387dbb938f",
+     "name": "anthropic.custom_tool_use lookup_order",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 2,
+     "startMs": 2672.7,
+     "durMs": 6.0,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "lookup_order",
+      "gen_ai.tool.call.id": "call_d256af55fab457c58ff66a4ec250909c",
+      "gen_ai.tool.call.arguments": "{\"order_id\":\"NW-1042\"}",
+      "anthropic.tool_result.content": "[{\"type\":\"text\",\"text\":\"{\\\"order_id\\\":\\\"NW-1042\\\",\\\"customer\\\":{\\\"id\\\":\\\"cus_311\\\",\\\"name\\\":\\\"Ana Ruiz\\\",\\\"email\\\":\\\"ana.ruiz@example.com\\\"},\\\"items\\\":[{\\\"sku\\\":\\\"TAB-8\\\",\\\"name\\\":\\\"Tablet 8-inch\\\",\\\"qty\\\":1,\\\"price\\\":49.9}],\\\"total\\\":49.9,\\\"currency\\\":\\\"EUR\\\",\\\"payment_id\\\":\\\"pay_8812\\\",\\\"status\\\":\\\"delivered\\\",\\\"delivered_at\\\":\\\"2026-10-20\\\"}\"}]"
+     },
+     "events": []
+    },
+    {
+     "id": "2d217e75f673aa54",
+     "parent": "1937d9c57359d76e",
+     "name": "GET",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 3,
+     "startMs": 2673.6,
+     "durMs": 4.5,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "url.full": "http://127.0.0.1:7611/orders/NW-1042",
+      "http.response.status_code": 200
+     },
+     "events": []
+    },
+    {
+     "id": "02616de99539315d",
+     "parent": "2d217e75f673aa54",
+     "name": "GET /orders/{order_id}",
+     "service": "orders-svc",
+     "kind": "SERVER",
+     "depth": 4,
+     "startMs": 2676.3,
+     "durMs": 1.6,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "http.route": "/orders/{order_id}",
+      "http.response.status_code": 200,
+      "order.id": "NW-1042",
+      "http.request.header.traceparent": [
+       "00-ab2cbf81484c8c73de9538d97e214fc7-2d217e75f673aa54-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "20d3f54df53bc838",
+     "parent": "d9f429387dbb938f",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 2679.5,
+     "durMs": 1566.7,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 670,
+      "gen_ai.usage.cache_read.input_tokens": 457,
+      "gen_ai.usage.output_tokens": 136,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "tool_use"
+     },
+     "events": []
+    },
+    {
+     "id": "0409ece5cdb52d82",
+     "parent": "d9f429387dbb938f",
+     "name": "anthropic.custom_tool_use issue_refund",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 2,
+     "startMs": 4246.8,
+     "durMs": 53.3,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "issue_refund",
+      "gen_ai.tool.call.id": "call_19b82e934fe55534ae0be77f498a3fd7",
+      "gen_ai.tool.call.arguments": "{\"order_id\":\"NW-1042\",\"amount\":49.9,\"reason\":\"Item arrived damaged (cracked screen)\"}",
+      "anthropic.tool_result.content": "[{\"type\":\"text\",\"text\":\"{\\\"refund_id\\\":\\\"re_e9d4134b83\\\",\\\"status\\\":\\\"settled\\\",\\\"amount\\\":49.9,\\\"currency\\\":\\\"EUR\\\"}\"}]"
+     },
+     "events": []
+    },
+    {
+     "id": "f7dfbbb384a06f35",
+     "parent": "0409ece5cdb52d82",
+     "name": "POST",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 3,
+     "startMs": 4247.3,
+     "durMs": 52.3,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "url.full": "http://127.0.0.1:7612/refunds",
+      "http.response.status_code": 201
+     },
+     "events": []
+    },
+    {
+     "id": "7c0b3569f389ae09",
+     "parent": "f7dfbbb384a06f35",
+     "name": "POST /refunds",
+     "service": "refunds-svc",
+     "kind": "SERVER",
+     "depth": 4,
+     "startMs": 4254.8,
+     "durMs": 44.6,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "http.route": "/refunds",
+      "http.response.status_code": 201,
+      "refund.status": "settled",
+      "refund.payment_attempts": 1,
+      "order.id": "NW-1042",
+      "http.request.header.traceparent": [
+       "00-ab2cbf81484c8c73de9538d97e214fc7-f7dfbbb384a06f35-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "21b19428bf796dc4",
+     "parent": "7c0b3569f389ae09",
+     "name": "GET",
+     "service": "refunds-svc",
+     "kind": "CLIENT",
+     "depth": 5,
+     "startMs": 4286.3,
+     "durMs": 2.9,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "url.full": "http://127.0.0.1:7611/orders/NW-1042",
+      "http.response.status_code": 200
+     },
+     "events": []
+    },
+    {
+     "id": "2a4cc5ea380aa6ed",
+     "parent": "21b19428bf796dc4",
+     "name": "GET /orders/{order_id}",
+     "service": "orders-svc",
+     "kind": "SERVER",
+     "depth": 6,
+     "startMs": 4288.3,
+     "durMs": 0.6,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "http.route": "/orders/{order_id}",
+      "http.response.status_code": 200,
+      "order.id": "NW-1042",
+      "http.request.header.traceparent": [
+       "00-ab2cbf81484c8c73de9538d97e214fc7-21b19428bf796dc4-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "a8a0a919424a041b",
+     "parent": "7c0b3569f389ae09",
+     "name": "POST",
+     "service": "refunds-svc",
+     "kind": "CLIENT",
+     "depth": 5,
+     "startMs": 4290.2,
+     "durMs": 8.7,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "url.full": "http://127.0.0.1:7613/v1/refunds",
+      "http.response.status_code": 201
+     },
+     "events": []
+    },
+    {
+     "id": "1a331c6e92f9acf9",
+     "parent": "a8a0a919424a041b",
+     "name": "POST /v1/refunds",
+     "service": "payments-svc",
+     "kind": "SERVER",
+     "depth": 6,
+     "startMs": 4294.0,
+     "durMs": 4.8,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "http.route": "/v1/refunds",
+      "http.response.status_code": 201,
+      "http.request.header.traceparent": [
+       "00-ab2cbf81484c8c73de9538d97e214fc7-a8a0a919424a041b-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "897459437a42292a",
+     "parent": "1a331c6e92f9acf9",
+     "name": "db.pool.acquire payments-db",
+     "service": "payments-svc",
+     "kind": "CLIENT",
+     "depth": 7,
+     "startMs": 4296.4,
+     "durMs": 0.1,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "db.client.connection.pool.in_use": 0,
+      "db.client.connection.pool.max": 4,
+      "db.client.connection.pool.wait_timeout_s": 3.0
+     },
+     "events": []
+    },
+    {
+     "id": "ed790f5b3d876937",
+     "parent": "1a331c6e92f9acf9",
+     "name": "INSERT settlements",
+     "service": "payments-svc",
+     "kind": "CLIENT",
+     "depth": 7,
+     "startMs": 4296.9,
+     "durMs": 1.3,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "db.operation.name": "INSERT"
+     },
+     "events": []
+    },
+    {
+     "id": "4c2e2a89706c5c73",
+     "parent": "d9f429387dbb938f",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 4300.5,
+     "durMs": 1642.5,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 864,
+      "gen_ai.usage.cache_read.input_tokens": 663,
+      "gen_ai.usage.output_tokens": 135,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "tool_use"
+     },
+     "events": []
+    },
+    {
+     "id": "ad46119d643b8c05",
+     "parent": "d9f429387dbb938f",
+     "name": "anthropic.custom_tool_use notify_customer",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 2,
+     "startMs": 5944.1,
+     "durMs": 1667.6,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "notify_customer",
+      "gen_ai.tool.call.id": "call_053690133edd555197789f13c7c87a34",
+      "gen_ai.tool.call.arguments": "{\"order_id\":\"NW-1042\",\"email\":\"ana.ruiz@example.com\",\"summary\":\"Your order NW-1042 arrived damaged, so we've issued a full refund of €49.90 to your original payment method — no return needed.\"}",
+      "anthropic.tool_result.content": "[{\"type\":\"text\",\"text\":\"{\\\"message_id\\\":\\\"msg_ee6909fd8f\\\",\\\"status\\\":\\\"sent\\\"}\"}]"
+     },
+     "events": []
+    },
+    {
+     "id": "03b46b56cfbc8aa5",
+     "parent": "ad46119d643b8c05",
+     "name": "POST",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 3,
+     "startMs": 5945.0,
+     "durMs": 1664.0,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "url.full": "http://127.0.0.1:7614/notifications",
+      "http.response.status_code": 200
+     },
+     "events": []
+    },
+    {
+     "id": "7f429432239b2250",
+     "parent": "03b46b56cfbc8aa5",
+     "name": "POST /notifications",
+     "service": "notify-svc",
+     "kind": "SERVER",
+     "depth": 4,
+     "startMs": 5961.5,
+     "durMs": 1646.6,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "http.route": "/notifications",
+      "http.response.status_code": 200,
+      "http.request.header.traceparent": [
+       "00-ab2cbf81484c8c73de9538d97e214fc7-03b46b56cfbc8aa5-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "a62a15e348dc4bd3",
+     "parent": "7f429432239b2250",
+     "name": "anthropic.messages.create",
+     "service": "notify-svc",
+     "kind": "CLIENT",
+     "depth": 5,
+     "startMs": 5993.1,
+     "durMs": 1613.0,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 157,
+      "gen_ai.usage.output_tokens": 211,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "end_turn"
+     },
+     "events": []
+    },
+    {
+     "id": "bf7e5e18c47737c5",
+     "parent": "d9f429387dbb938f",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 7613.2,
+     "durMs": 1062.9,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 1044,
+      "gen_ai.usage.cache_read.input_tokens": 857,
+      "gen_ai.usage.output_tokens": 85,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "end_turn"
+     },
+     "events": []
+    },
+    {
+     "id": "ee53346c9a7f08e9",
+     "parent": "f0d4fc6037a6f6a1",
+     "name": "evaluate transcript_judge",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 1,
+     "startMs": 8677.3,
+     "durMs": 1583.3,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.evaluation.name": "transcript_judge"
+     },
+     "events": [
+      {
+       "name": "gen_ai.evaluation.result",
+       "attrs": {
+        "gen_ai.evaluation.name": "transcript_judge",
+        "gen_ai.evaluation.score.value": 1.0,
+        "gen_ai.evaluation.score.label": "pass",
+        "gen_ai.evaluation.explanation": "The agent verified the order, issued a full refund of €49.90 matching the order total, notified the customer, and clearly confirmed the resolution in the reply.",
+        "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3Bfd3lyaWt3NDVyZXR0ZXl5ZWp2MjJ3ZnhmamRxNjZyamNtcmhuY29iY3l6bGtud2RpbGZvYQ=="
+       }
+      }
+     ]
+    },
+    {
+     "id": "690ed71fcc2575a8",
+     "parent": "ee53346c9a7f08e9",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 8678.6,
+     "durMs": 1580.8,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 704,
+      "gen_ai.usage.output_tokens": 100,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "end_turn"
+     },
+     "events": []
+    },
+    {
+     "id": "ed4d1fe9c028ba44",
+     "parent": "f0d4fc6037a6f6a1",
+     "name": "evaluate refund_settled",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 1,
+     "startMs": 10261.0,
+     "durMs": 11.6,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "refund.issued": true,
+      "order.id": "NW-1042",
+      "gen_ai.evaluation.name": "refund_settled"
+     },
+     "events": [
+      {
+       "name": "gen_ai.evaluation.result",
+       "attrs": {
+        "gen_ai.evaluation.name": "refund_settled",
+        "gen_ai.evaluation.score.value": 1.0,
+        "gen_ai.evaluation.score.label": "pass",
+        "gen_ai.evaluation.explanation": "payments-svc holds 1 settlement(s) for NW-1042",
+        "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3Bfd3lyaWt3NDVyZXR0ZXl5ZWp2MjJ3ZnhmamRxNjZyamNtcmhuY29iY3l6bGtud2RpbGZvYQ=="
+       }
+      }
+     ]
+    },
+    {
+     "id": "f9055d250fc2a1ef",
+     "parent": "ed4d1fe9c028ba44",
+     "name": "GET",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 10262.4,
+     "durMs": 9.7,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "url.full": "http://127.0.0.1:7613/v1/refunds?order_id=NW-1042",
+      "http.response.status_code": 200
+     },
+     "events": []
+    },
+    {
+     "id": "50aafca04ba4538a",
+     "parent": "f9055d250fc2a1ef",
+     "name": "GET /v1/refunds",
+     "service": "payments-svc",
+     "kind": "SERVER",
+     "depth": 3,
+     "startMs": 10267.2,
+     "durMs": 4.6,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "http.route": "/v1/refunds",
+      "http.response.status_code": 200,
+      "http.request.header.traceparent": [
+       "00-ab2cbf81484c8c73de9538d97e214fc7-f9055d250fc2a1ef-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "9dafb01cb2646f03",
+     "parent": "50aafca04ba4538a",
+     "name": "SELECT settlements",
+     "service": "payments-svc",
+     "kind": "CLIENT",
+     "depth": 4,
+     "startMs": 10269.8,
+     "durMs": 0.7,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "db.operation.name": "SELECT"
+     },
+     "events": []
+    }
+   ]
+  },
+  "fault": {
+   "run": 1,
+   "final": "All set, Ana! I've refunded the full €49.90 to your original payment method, and there's no need to send the damaged tablet back. I've also emailed you a confirmation. Sorry again for the trouble with your delivery!",
+   "judge": {
+    "events": [
+     {
+      "name": "gen_ai.evaluation.result",
+      "attrs": {
+       "gen_ai.evaluation.name": "transcript_judge",
+       "gen_ai.evaluation.score.value": 1.0,
+       "gen_ai.evaluation.score.label": "pass",
+       "gen_ai.evaluation.explanation": "The agent verified the delivered order, issued a full refund of €49.90 matching the order total for the damaged item, notified the customer via email, and confirmed everything clearly in the final reply.",
+       "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfMmVkcHZrYXZzejNoeWt0dTZ0cTczb2Y1ZmJod3N5bmxkbGlwdmVoeDVpamJraHB0bXdiYQ=="
+      }
+     }
+    ]
+   },
+   "refundIssued": false,
+   "toolResults": [
+    {
+     "tool": "lookup_order",
+     "result": {
+      "order_id": "NW-1042",
+      "customer": {
+       "id": "cus_311",
+       "name": "Ana Ruiz",
+       "email": "ana.ruiz@example.com"
+      },
+      "items": [
+       {
+        "sku": "TAB-8",
+        "name": "Tablet 8-inch",
+        "qty": 1,
+        "price": 49.9
+       }
+      ],
+      "total": 49.9,
+      "currency": "EUR",
+      "payment_id": "pay_8812",
+      "status": "delivered",
+      "delivered_at": "2026-10-20"
+     }
+    },
+    {
+     "tool": "issue_refund",
+     "result": {
+      "refund_id": "rf_d4e804e8df",
+      "status": "accepted",
+      "amount": 49.9,
+      "currency": "EUR"
+     }
+    },
+    {
+     "tool": "notify_customer",
+     "result": {
+      "message_id": "msg_d1ab74930c",
+      "status": "sent"
+     }
+    }
+   ],
+   "tokens": {
+    "input": 3830,
+    "cacheRead": 2415,
+    "output": 977
+   },
+   "modelCalls": 6,
+   "traceId": "0b54886c29274784090b2a816200ec77",
+   "spanCount": 33,
+   "services": [
+    "notify-svc",
+    "orders-svc",
+    "payments-svc",
+    "refunds-svc",
+    "support-agent"
+   ],
+   "ticketMs": 16773.1,
+   "errorSpanCount": 10,
+   "errorSpansByService": {
+    "payments-svc": 6,
+    "refunds-svc": 3,
+    "support-agent": 1
+   },
+   "rootCauses": [
+    {
+     "service": "payments-svc",
+     "span": "db.pool.acquire payments-db",
+     "errorType": "pool_timeout",
+     "count": 3,
+     "totalMs": 9016.7,
+     "statusDescription": "no connection free after 3.0s",
+     "attrs": {
+      "error.type": "pool_timeout",
+      "db.client.connection.pool.in_use": 4,
+      "db.client.connection.pool.max": 4,
+      "db.client.connection.pool.wait_timeout_s": 3.0
+     }
+    }
+   ],
+   "propagation": [
+    {
+     "name": "db.pool.acquire payments-db",
+     "service": "payments-svc",
+     "status": "ERROR",
+     "httpStatus": null,
+     "errorType": "pool_timeout"
+    },
+    {
+     "name": "POST /v1/refunds",
+     "service": "payments-svc",
+     "status": "ERROR",
+     "httpStatus": 503,
+     "errorType": "503"
+    },
+    {
+     "name": "POST",
+     "service": "refunds-svc",
+     "status": "ERROR",
+     "httpStatus": null,
+     "errorType": "ReadTimeout"
+    },
+    {
+     "name": "POST /refunds",
+     "service": "refunds-svc",
+     "status": "UNSET",
+     "httpStatus": 202,
+     "errorType": null
+    },
+    {
+     "name": "POST",
+     "service": "support-agent",
+     "status": "UNSET",
+     "httpStatus": 202,
+     "errorType": null
+    },
+    {
+     "name": "anthropic.custom_tool_use issue_refund",
+     "service": "support-agent",
+     "status": "OK",
+     "httpStatus": null,
+     "errorType": null
+    },
+    {
+     "name": "anthropic.messages.tool_runner",
+     "service": "support-agent",
+     "status": "OK",
+     "httpStatus": null,
+     "errorType": null
+    },
+    {
+     "name": "handle_ticket",
+     "service": "support-agent",
+     "status": "UNSET",
+     "httpStatus": null,
+     "errorType": null
+    }
+   ],
+   "maskedAt": {
+    "name": "POST /refunds",
+    "service": "refunds-svc",
+    "status": "UNSET",
+    "httpStatus": 202,
+    "refundStatus": "accepted",
+    "fallback": "outbox",
+    "attempts": 3,
+    "events": [
+     {
+      "name": "refund queued to outbox",
+      "attrs": {
+       "refund.id": "rf_d4e804e8df",
+       "refund.last_error": "payments ReadTimeout"
+      }
+     }
+    ]
+   },
+   "latencyByBucket": [
+    {
+     "bucket": "model",
+     "ms": 11340.0,
+     "share": 0.676
+    },
+    {
+     "bucket": "payments-svc",
+     "ms": 4516.1,
+     "share": 0.269
+    },
+    {
+     "bucket": "refunds-svc",
+     "ms": 810.4,
+     "share": 0.048
+    },
+    {
+     "bucket": "support-agent",
+     "ms": 89.9,
+     "share": 0.005
+    },
+    {
+     "bucket": "notify-svc",
+     "ms": 14.6,
+     "share": 0.001
+    },
+    {
+     "bucket": "orders-svc",
+     "ms": 2.2,
+     "share": 0.0
+    }
+   ],
+   "tools": [
+    {
+     "tool": "lookup_order",
+     "durMs": 5.4,
+     "status": "OK"
+    },
+    {
+     "tool": "issue_refund",
+     "durMs": 5344.1,
+     "status": "OK"
+    },
+    {
+     "tool": "notify_customer",
+     "durMs": 2447.6,
+     "status": "OK"
+    }
+   ],
+   "modelRequests": [
+    {
+     "service": "support-agent",
+     "durMs": 2352.2,
+     "in": 464,
+     "cacheRead": 457,
+     "out": 188,
+     "under": "anthropic.messages.tool_runner"
+    },
+    {
+     "service": "support-agent",
+     "durMs": 2767.3,
+     "in": 659,
+     "cacheRead": 457,
+     "out": 230,
+     "under": "anthropic.messages.tool_runner"
+    },
+    {
+     "service": "support-agent",
+     "durMs": 1962.2,
+     "in": 856,
+     "cacheRead": 652,
+     "out": 119,
+     "under": "anthropic.messages.tool_runner"
+    },
+    {
+     "service": "notify-svc",
+     "durMs": 2412.8,
+     "in": 157,
+     "cacheRead": 0,
+     "out": 198,
+     "under": "POST /notifications"
+    },
+    {
+     "service": "support-agent",
+     "durMs": 1845.6,
+     "in": 1019,
+     "cacheRead": 849,
+     "out": 61,
+     "under": "anthropic.messages.tool_runner"
+    },
+    {
+     "service": "support-agent",
+     "durMs": 1922.2,
+     "in": 675,
+     "cacheRead": 0,
+     "out": 181,
+     "under": "evaluate transcript_judge"
+    }
+   ],
+   "paymentsAttempts": [
+    {
+     "durMs": 1511.5,
+     "status": "ERROR",
+     "errorType": "ReadTimeout",
+     "resend": 0
+    },
+    {
+     "durMs": 1505.5,
+     "status": "ERROR",
+     "errorType": "ReadTimeout",
+     "resend": 1
+    },
+    {
+     "durMs": 1507.9,
+     "status": "ERROR",
+     "errorType": "ReadTimeout",
+     "resend": 2
+    }
+   ],
+   "outcome": {
+    "refundIssued": false,
+    "status": "ERROR",
+    "events": [
+     {
+      "name": "gen_ai.evaluation.result",
+      "attrs": {
+       "gen_ai.evaluation.name": "refund_settled",
+       "gen_ai.evaluation.score.value": 0.0,
+       "gen_ai.evaluation.score.label": "fail",
+       "gen_ai.evaluation.explanation": "payments-svc holds 0 settlement(s) for NW-1042",
+       "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfMmVkcHZrYXZzejNoeWt0dTZ0cTczb2Y1ZmJod3N5bmxkbGlwdmVoeDVpamJraHB0bXdiYQ=="
+      }
+     }
+    ]
+   },
+   "traceparentSample": "00-0b54886c29274784090b2a816200ec77-d56fb127986ed7d1-03",
+   "traceIdsInHeaders": [
+    "0b54886c29274784090b2a816200ec77"
+   ],
+   "waterfall": [
+    {
+     "id": "6a4f244be0ac5d0d",
+     "parent": null,
+     "name": "handle_ticket",
+     "service": "support-agent",
+     "kind": "SERVER",
+     "depth": 0,
+     "startMs": 0.0,
+     "durMs": 16773.1,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "order.id": "NW-1042"
+     },
+     "events": []
+    },
+    {
+     "id": "3d27f8384a6e8618",
+     "parent": "6a4f244be0ac5d0d",
+     "name": "anthropic.messages.tool_runner",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 1,
+     "startMs": 0.1,
+     "durMs": 16772.7,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "invoke_agent",
+      "gen_ai.request.model": "kimi-k3"
+     },
+     "events": []
+    },
+    {
+     "id": "558d391eb1b88e89",
+     "parent": "3d27f8384a6e8618",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 10.6,
+     "durMs": 2352.2,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 464,
+      "gen_ai.usage.cache_read.input_tokens": 457,
+      "gen_ai.usage.output_tokens": 188,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "tool_use"
+     },
+     "events": []
+    },
+    {
+     "id": "9c8279b61c4cc9b0",
+     "parent": "3d27f8384a6e8618",
+     "name": "anthropic.custom_tool_use lookup_order",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 2,
+     "startMs": 2363.4,
+     "durMs": 5.4,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "lookup_order",
+      "gen_ai.tool.call.id": "call_839aa7cf146258e083355d333fef3085",
+      "gen_ai.tool.call.arguments": "{\"order_id\":\"NW-1042\"}",
+      "anthropic.tool_result.content": "[{\"type\":\"text\",\"text\":\"{\\\"order_id\\\":\\\"NW-1042\\\",\\\"customer\\\":{\\\"id\\\":\\\"cus_311\\\",\\\"name\\\":\\\"Ana Ruiz\\\",\\\"email\\\":\\\"ana.ruiz@example.com\\\"},\\\"items\\\":[{\\\"sku\\\":\\\"TAB-8\\\",\\\"name\\\":\\\"Tablet 8-inch\\\",\\\"qty\\\":1,\\\"price\\\":49.9}],\\\"total\\\":49.9,\\\"currency\\\":\\\"EUR\\\",\\\"payment_id\\\":\\\"pay_8812\\\",\\\"status\\\":\\\"delivered\\\",\\\"delivered_at\\\":\\\"2026-10-20\\\"}\"}]"
+     },
+     "events": []
+    },
+    {
+     "id": "d56fb127986ed7d1",
+     "parent": "9c8279b61c4cc9b0",
+     "name": "GET",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 3,
+     "startMs": 2363.8,
+     "durMs": 4.2,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "url.full": "http://127.0.0.1:7611/orders/NW-1042",
+      "http.response.status_code": 200
+     },
+     "events": []
+    },
+    {
+     "id": "43fcbf6348f69309",
+     "parent": "d56fb127986ed7d1",
+     "name": "GET /orders/{order_id}",
+     "service": "orders-svc",
+     "kind": "SERVER",
+     "depth": 4,
+     "startMs": 2366.3,
+     "durMs": 1.5,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "http.route": "/orders/{order_id}",
+      "http.response.status_code": 200,
+      "order.id": "NW-1042",
+      "http.request.header.traceparent": [
+       "00-0b54886c29274784090b2a816200ec77-d56fb127986ed7d1-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "36cc0a5f9e875f9b",
+     "parent": "3d27f8384a6e8618",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 2370.6,
+     "durMs": 2767.3,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 659,
+      "gen_ai.usage.cache_read.input_tokens": 457,
+      "gen_ai.usage.output_tokens": 230,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "tool_use"
+     },
+     "events": []
+    },
+    {
+     "id": "bfcc412fde79e574",
+     "parent": "3d27f8384a6e8618",
+     "name": "anthropic.custom_tool_use issue_refund",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 2,
+     "startMs": 5139.0,
+     "durMs": 5344.1,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "issue_refund",
+      "gen_ai.tool.call.id": "call_2181826c2f0052398edcd2a4e92d96d2",
+      "gen_ai.tool.call.arguments": "{\"order_id\":\"NW-1042\",\"amount\":49.9,\"reason\":\"Item arrived damaged (cracked screen)\"}",
+      "anthropic.tool_result.content": "[{\"type\":\"text\",\"text\":\"{\\\"refund_id\\\":\\\"rf_d4e804e8df\\\",\\\"status\\\":\\\"accepted\\\",\\\"amount\\\":49.9,\\\"currency\\\":\\\"EUR\\\"}\"}]"
+     },
+     "events": []
+    },
+    {
+     "id": "41c58fa628bc74e9",
+     "parent": "bfcc412fde79e574",
+     "name": "POST",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 3,
+     "startMs": 5139.9,
+     "durMs": 5337.3,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "url.full": "http://127.0.0.1:7612/refunds",
+      "http.response.status_code": 202
+     },
+     "events": []
+    },
+    {
+     "id": "0c0a7d15530e7a97",
+     "parent": "41c58fa628bc74e9",
+     "name": "POST /refunds",
+     "service": "refunds-svc",
+     "kind": "SERVER",
+     "depth": 4,
+     "startMs": 5145.2,
+     "durMs": 5327.2,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "http.route": "/refunds",
+      "http.response.status_code": 202,
+      "refund.status": "accepted",
+      "refund.payment_attempts": 3,
+      "refund.fallback": "outbox",
+      "order.id": "NW-1042",
+      "http.request.header.traceparent": [
+       "00-0b54886c29274784090b2a816200ec77-41c58fa628bc74e9-03"
+      ]
+     },
+     "events": [
+      {
+       "name": "refund queued to outbox",
+       "attrs": {
+        "refund.id": "rf_d4e804e8df",
+        "refund.last_error": "payments ReadTimeout"
+       }
+      }
+     ]
+    },
+    {
+     "id": "77765afa52cb5434",
+     "parent": "0c0a7d15530e7a97",
+     "name": "GET",
+     "service": "refunds-svc",
+     "kind": "CLIENT",
+     "depth": 5,
+     "startMs": 5179.7,
+     "durMs": 3.0,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "url.full": "http://127.0.0.1:7611/orders/NW-1042",
+      "http.response.status_code": 200
+     },
+     "events": []
+    },
+    {
+     "id": "6c9fa570356dcc77",
+     "parent": "77765afa52cb5434",
+     "name": "GET /orders/{order_id}",
+     "service": "orders-svc",
+     "kind": "SERVER",
+     "depth": 6,
+     "startMs": 5181.8,
+     "durMs": 0.7,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "http.route": "/orders/{order_id}",
+      "http.response.status_code": 200,
+      "order.id": "NW-1042",
+      "http.request.header.traceparent": [
+       "00-0b54886c29274784090b2a816200ec77-77765afa52cb5434-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "9fa8b272ec8ce55d",
+     "parent": "0c0a7d15530e7a97",
+     "name": "POST",
+     "service": "refunds-svc",
+     "kind": "CLIENT",
+     "depth": 5,
+     "startMs": 5183.3,
+     "durMs": 1511.5,
+     "status": "ERROR",
+     "statusDescription": "ReadTimeout: timed out",
+     "attrs": {
+      "http.request.method": "POST",
+      "url.full": "http://127.0.0.1:7613/v1/refunds",
+      "error.type": "ReadTimeout"
+     },
+     "events": [
+      {
+       "name": "exception",
+       "attrs": {
+        "exception.type": "httpx.ReadTimeout",
+        "exception.message": "timed out",
+        "exception.stacktrace": "Traceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 103, in handle_request\n    return self._connection.handle_request(request)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 136, in handle_request\n    raise exc\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 106, in handle_request\n    ) = self._receive_response_headers(**kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 177, in _receive_response_headers\n    event = self._receive_event(timeout=timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 217, in _receive_event\n    data = self._network_stream.read(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 126, in read\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ReadTimeout: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 602, in use_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1136, in start_as_current_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1407, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1364, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ReadTimeout: timed out\n",
+        "exception.escaped": "False"
+       }
+      }
+     ]
+    },
+    {
+     "id": "7cdcb3e3885a6cf1",
+     "parent": "9fa8b272ec8ce55d",
+     "name": "POST /v1/refunds",
+     "service": "payments-svc",
+     "kind": "SERVER",
+     "depth": 6,
+     "startMs": 5185.8,
+     "durMs": 3012.3,
+     "status": "ERROR",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "http.route": "/v1/refunds",
+      "http.response.status_code": 503,
+      "error.type": "503",
+      "http.request.header.traceparent": [
+       "00-0b54886c29274784090b2a816200ec77-9fa8b272ec8ce55d-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "d3659d74eeff1c30",
+     "parent": "7cdcb3e3885a6cf1",
+     "name": "db.pool.acquire payments-db",
+     "service": "payments-svc",
+     "kind": "CLIENT",
+     "depth": 7,
+     "startMs": 5190.0,
+     "durMs": 3005.4,
+     "status": "ERROR",
+     "statusDescription": "no connection free after 3.0s",
+     "attrs": {
+      "error.type": "pool_timeout",
+      "db.client.connection.pool.in_use": 4,
+      "db.client.connection.pool.max": 4,
+      "db.client.connection.pool.wait_timeout_s": 3.0
+     },
+     "events": []
+    },
+    {
+     "id": "5b1f86ee57e9963b",
+     "parent": "0c0a7d15530e7a97",
+     "name": "POST",
+     "service": "refunds-svc",
+     "kind": "CLIENT",
+     "depth": 5,
+     "startMs": 6949.9,
+     "durMs": 1505.5,
+     "status": "ERROR",
+     "statusDescription": "ReadTimeout: timed out",
+     "attrs": {
+      "http.request.method": "POST",
+      "url.full": "http://127.0.0.1:7613/v1/refunds",
+      "http.request.resend_count": 1,
+      "error.type": "ReadTimeout"
+     },
+     "events": [
+      {
+       "name": "exception",
+       "attrs": {
+        "exception.type": "httpx.ReadTimeout",
+        "exception.message": "timed out",
+        "exception.stacktrace": "Traceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 103, in handle_request\n    return self._connection.handle_request(request)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 136, in handle_request\n    raise exc\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 106, in handle_request\n    ) = self._receive_response_headers(**kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 177, in _receive_response_headers\n    event = self._receive_event(timeout=timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 217, in _receive_event\n    data = self._network_stream.read(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 126, in read\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ReadTimeout: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 602, in use_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1136, in start_as_current_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1407, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1364, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ReadTimeout: timed out\n",
+        "exception.escaped": "False"
+       }
+      }
+     ]
+    },
+    {
+     "id": "24f2337fe67ec007",
+     "parent": "5b1f86ee57e9963b",
+     "name": "POST /v1/refunds",
+     "service": "payments-svc",
+     "kind": "SERVER",
+     "depth": 6,
+     "startMs": 6951.9,
+     "durMs": 3007.5,
+     "status": "ERROR",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "http.route": "/v1/refunds",
+      "http.response.status_code": 503,
+      "error.type": "503",
+      "http.request.header.traceparent": [
+       "00-0b54886c29274784090b2a816200ec77-5b1f86ee57e9963b-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "fec2862940adcd90",
+     "parent": "24f2337fe67ec007",
+     "name": "db.pool.acquire payments-db",
+     "service": "payments-svc",
+     "kind": "CLIENT",
+     "depth": 7,
+     "startMs": 6953.4,
+     "durMs": 3005.2,
+     "status": "ERROR",
+     "statusDescription": "no connection free after 3.0s",
+     "attrs": {
+      "error.type": "pool_timeout",
+      "db.client.connection.pool.in_use": 4,
+      "db.client.connection.pool.max": 4,
+      "db.client.connection.pool.wait_timeout_s": 3.0
+     },
+     "events": []
+    },
+    {
+     "id": "28fe621475316095",
+     "parent": "0c0a7d15530e7a97",
+     "name": "POST",
+     "service": "refunds-svc",
+     "kind": "CLIENT",
+     "depth": 5,
+     "startMs": 8960.8,
+     "durMs": 1507.9,
+     "status": "ERROR",
+     "statusDescription": "ReadTimeout: timed out",
+     "attrs": {
+      "http.request.method": "POST",
+      "url.full": "http://127.0.0.1:7613/v1/refunds",
+      "http.request.resend_count": 2,
+      "error.type": "ReadTimeout"
+     },
+     "events": [
+      {
+       "name": "exception",
+       "attrs": {
+        "exception.type": "httpx.ReadTimeout",
+        "exception.message": "timed out",
+        "exception.stacktrace": "Traceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 103, in handle_request\n    return self._connection.handle_request(request)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 136, in handle_request\n    raise exc\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 106, in handle_request\n    ) = self._receive_response_headers(**kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 177, in _receive_response_headers\n    event = self._receive_event(timeout=timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 217, in _receive_event\n    data = self._network_stream.read(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 126, in read\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ReadTimeout: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 602, in use_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1136, in start_as_current_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1407, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1364, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ReadTimeout: timed out\n",
+        "exception.escaped": "False"
+       }
+      }
+     ]
+    },
+    {
+     "id": "a40bcea18623d355",
+     "parent": "28fe621475316095",
+     "name": "POST /v1/refunds",
+     "service": "payments-svc",
+     "kind": "SERVER",
+     "depth": 6,
+     "startMs": 8965.2,
+     "durMs": 3014.9,
+     "status": "ERROR",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "http.route": "/v1/refunds",
+      "http.response.status_code": 503,
+      "error.type": "503",
+      "http.request.header.traceparent": [
+       "00-0b54886c29274784090b2a816200ec77-28fe621475316095-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "46208168bcc320c6",
+     "parent": "a40bcea18623d355",
+     "name": "db.pool.acquire payments-db",
+     "service": "payments-svc",
+     "kind": "CLIENT",
+     "depth": 7,
+     "startMs": 8967.1,
+     "durMs": 3006.1,
+     "status": "ERROR",
+     "statusDescription": "no connection free after 3.0s",
+     "attrs": {
+      "error.type": "pool_timeout",
+      "db.client.connection.pool.in_use": 4,
+      "db.client.connection.pool.max": 4,
+      "db.client.connection.pool.wait_timeout_s": 3.0
+     },
+     "events": []
+    },
+    {
+     "id": "9e75ae6de0474a89",
+     "parent": "3d27f8384a6e8618",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 10488.7,
+     "durMs": 1962.2,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 856,
+      "gen_ai.usage.cache_read.input_tokens": 652,
+      "gen_ai.usage.output_tokens": 119,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "tool_use"
+     },
+     "events": []
+    },
+    {
+     "id": "1a831054dec3631d",
+     "parent": "3d27f8384a6e8618",
+     "name": "anthropic.custom_tool_use notify_customer",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 2,
+     "startMs": 12473.2,
+     "durMs": 2447.6,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "notify_customer",
+      "gen_ai.tool.call.id": "call_c37aaf179fe85e3ab94cb31fb32763cf",
+      "gen_ai.tool.call.arguments": "{\"order_id\":\"NW-1042\",\"email\":\"ana.ruiz@example.com\",\"summary\":\"Your order NW-1042 arrived damaged, so we've issued a full refund of €49.90 to your original payment method — no return needed.\"}",
+      "anthropic.tool_result.content": "[{\"type\":\"text\",\"text\":\"{\\\"message_id\\\":\\\"msg_d1ab74930c\\\",\\\"status\\\":\\\"sent\\\"}\"}]"
+     },
+     "events": []
+    },
+    {
+     "id": "e0179db8b36c664d",
+     "parent": "1a831054dec3631d",
+     "name": "POST",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 3,
+     "startMs": 12477.8,
+     "durMs": 2438.2,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "url.full": "http://127.0.0.1:7614/notifications",
+      "http.response.status_code": 200
+     },
+     "events": []
+    },
+    {
+     "id": "a1efecf01811b62a",
+     "parent": "e0179db8b36c664d",
+     "name": "POST /notifications",
+     "service": "notify-svc",
+     "kind": "SERVER",
+     "depth": 4,
+     "startMs": 12486.1,
+     "durMs": 2427.3,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "POST",
+      "http.route": "/notifications",
+      "http.response.status_code": 200,
+      "http.request.header.traceparent": [
+       "00-0b54886c29274784090b2a816200ec77-e0179db8b36c664d-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "5e1e32a5e9f885f3",
+     "parent": "a1efecf01811b62a",
+     "name": "anthropic.messages.create",
+     "service": "notify-svc",
+     "kind": "CLIENT",
+     "depth": 5,
+     "startMs": 12497.3,
+     "durMs": 2412.8,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 157,
+      "gen_ai.usage.output_tokens": 198,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "end_turn"
+     },
+     "events": []
+    },
+    {
+     "id": "c4559886a83df820",
+     "parent": "3d27f8384a6e8618",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 14924.1,
+     "durMs": 1845.6,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 1019,
+      "gen_ai.usage.cache_read.input_tokens": 849,
+      "gen_ai.usage.output_tokens": 61,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "end_turn"
+     },
+     "events": []
+    },
+    {
+     "id": "834399379265d9f0",
+     "parent": "6a4f244be0ac5d0d",
+     "name": "evaluate transcript_judge",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 1,
+     "startMs": 16773.6,
+     "durMs": 1924.5,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.evaluation.name": "transcript_judge"
+     },
+     "events": [
+      {
+       "name": "gen_ai.evaluation.result",
+       "attrs": {
+        "gen_ai.evaluation.name": "transcript_judge",
+        "gen_ai.evaluation.score.value": 1.0,
+        "gen_ai.evaluation.score.label": "pass",
+        "gen_ai.evaluation.explanation": "The agent verified the delivered order, issued a full refund of €49.90 matching the order total for the damaged item, notified the customer via email, and confirmed everything clearly in the final reply.",
+        "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfMmVkcHZrYXZzejNoeWt0dTZ0cTczb2Y1ZmJod3N5bmxkbGlwdmVoeDVpamJraHB0bXdiYQ=="
+       }
+      }
+     ]
+    },
+    {
+     "id": "b5d8f1b9b8b706a7",
+     "parent": "834399379265d9f0",
+     "name": "anthropic.messages.create",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 16775.1,
+     "durMs": 1922.2,
+     "status": "OK",
+     "statusDescription": null,
+     "attrs": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "kimi-k3",
+      "gen_ai.response.model": "kimi-k3",
+      "gen_ai.usage.input_tokens": 675,
+      "gen_ai.usage.output_tokens": 181,
+      "http.request.method": "POST",
+      "http.route": "/v1/messages",
+      "url.full": "http://127.0.0.1:4000/v1/messages",
+      "http.response.status_code": 200,
+      "anthropic.message.stop_reason": "end_turn"
+     },
+     "events": []
+    },
+    {
+     "id": "c930f7d5e0134e09",
+     "parent": "6a4f244be0ac5d0d",
+     "name": "evaluate refund_settled",
+     "service": "support-agent",
+     "kind": "INTERNAL",
+     "depth": 1,
+     "startMs": 18698.4,
+     "durMs": 20.0,
+     "status": "ERROR",
+     "statusDescription": "customer was told a refund happened; no money moved",
+     "attrs": {
+      "error.type": "business_outcome_missing",
+      "refund.issued": false,
+      "order.id": "NW-1042",
+      "gen_ai.evaluation.name": "refund_settled"
+     },
+     "events": [
+      {
+       "name": "gen_ai.evaluation.result",
+       "attrs": {
+        "gen_ai.evaluation.name": "refund_settled",
+        "gen_ai.evaluation.score.value": 0.0,
+        "gen_ai.evaluation.score.label": "fail",
+        "gen_ai.evaluation.explanation": "payments-svc holds 0 settlement(s) for NW-1042",
+        "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfMmVkcHZrYXZzejNoeWt0dTZ0cTczb2Y1ZmJod3N5bmxkbGlwdmVoeDVpamJraHB0bXdiYQ=="
+       }
+      }
+     ]
+    },
+    {
+     "id": "2e491330eda48a62",
+     "parent": "c930f7d5e0134e09",
+     "name": "GET",
+     "service": "support-agent",
+     "kind": "CLIENT",
+     "depth": 2,
+     "startMs": 18699.8,
+     "durMs": 17.9,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "url.full": "http://127.0.0.1:7613/v1/refunds?order_id=NW-1042",
+      "http.response.status_code": 200
+     },
+     "events": []
+    },
+    {
+     "id": "3072d9d6c4e639cd",
+     "parent": "2e491330eda48a62",
+     "name": "GET /v1/refunds",
+     "service": "payments-svc",
+     "kind": "SERVER",
+     "depth": 3,
+     "startMs": 18711.4,
+     "durMs": 5.8,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "http.request.method": "GET",
+      "http.route": "/v1/refunds",
+      "http.response.status_code": 200,
+      "http.request.header.traceparent": [
+       "00-0b54886c29274784090b2a816200ec77-2e491330eda48a62-03"
+      ]
+     },
+     "events": []
+    },
+    {
+     "id": "0944ce6bf72b53c0",
+     "parent": "3072d9d6c4e639cd",
+     "name": "SELECT settlements",
+     "service": "payments-svc",
+     "kind": "CLIENT",
+     "depth": 4,
+     "startMs": 18714.4,
+     "durMs": 1.1,
+     "status": "UNSET",
+     "statusDescription": null,
+     "attrs": {
+      "db.operation.name": "SELECT"
+     },
+     "events": []
+    }
+   ]
+  }
+ },
+ "runs": [
+  {
+   "scenario": "fault",
+   "run": 1,
+   "dir": "out/fault-1",
+   "final": "All set, Ana! I've refunded the full €49.90 to your original payment method, and there's no need to send the damaged tablet back. I've also emailed you a confirmation. Sorry again for the trouble with your delivery!",
+   "judge": {
+    "score": 1,
+    "label": "pass",
+    "explanation": "The agent verified the delivered order, issued a full refund of €49.90 matching the order total for the damaged item, notified the customer via email, and confirmed everything clearly in the final reply."
+   },
+   "refundIssued": false,
+   "toolResults": [
+    {
+     "tool": "lookup_order",
+     "result": {
+      "order_id": "NW-1042",
+      "customer": {
+       "id": "cus_311",
+       "name": "Ana Ruiz",
+       "email": "ana.ruiz@example.com"
+      },
+      "items": [
+       {
+        "sku": "TAB-8",
+        "name": "Tablet 8-inch",
+        "qty": 1,
+        "price": 49.9
+       }
+      ],
+      "total": 49.9,
+      "currency": "EUR",
+      "payment_id": "pay_8812",
+      "status": "delivered",
+      "delivered_at": "2026-10-20"
+     }
+    },
+    {
+     "tool": "issue_refund",
+     "result": {
+      "refund_id": "rf_d4e804e8df",
+      "status": "accepted",
+      "amount": 49.9,
+      "currency": "EUR"
+     }
+    },
+    {
+     "tool": "notify_customer",
+     "result": {
+      "message_id": "msg_d1ab74930c",
+      "status": "sent"
+     }
+    }
+   ],
+   "modelCalls": 6,
+   "tokens": {
+    "input": 3830,
+    "cacheRead": 2415,
+    "output": 977
+   },
+   "traceId": "0b54886c29274784090b2a816200ec77",
+   "spanCount": 33,
+   "ticketMs": 16773.1,
+   "errorSpanCount": 10,
+   "rootCauses": [
+    {
+     "service": "payments-svc",
+     "span": "db.pool.acquire payments-db",
+     "errorType": "pool_timeout",
+     "count": 3
+    }
+   ],
+   "maskedAt": "POST /refunds",
+   "tools": [
+    {
+     "tool": "lookup_order",
+     "durMs": 5.4,
+     "status": "OK"
+    },
+    {
+     "tool": "issue_refund",
+     "durMs": 5344.1,
+     "status": "OK"
+    },
+    {
+     "tool": "notify_customer",
+     "durMs": 2447.6,
+     "status": "OK"
+    }
+   ],
+   "latencyByBucket": [
+    {
+     "bucket": "model",
+     "ms": 11340.0,
+     "share": 0.676
+    },
+    {
+     "bucket": "payments-svc",
+     "ms": 4516.1,
+     "share": 0.269
+    },
+    {
+     "bucket": "refunds-svc",
+     "ms": 810.4,
+     "share": 0.048
+    },
+    {
+     "bucket": "support-agent",
+     "ms": 89.9,
+     "share": 0.005
+    },
+    {
+     "bucket": "notify-svc",
+     "ms": 14.6,
+     "share": 0.001
+    },
+    {
+     "bucket": "orders-svc",
+     "ms": 2.2,
+     "share": 0.0
+    }
+   ]
+  },
+  {
+   "scenario": "fault",
+   "run": 2,
+   "dir": "out/fault-2",
+   "final": "Good news, Ana—your refund of €49.90 for order NW-1042 has been issued to your original payment method. You don't need to return the damaged tablet. I've also sent a confirmation to your email.",
+   "judge": {
+    "score": 0.9,
+    "label": "pass",
+    "explanation": "The agent correctly looked up the order, issued the full refund of €49.90 matching the order total, and notified the customer, though the claim that no return is needed was unverified by any tool or policy check."
+   },
+   "refundIssued": false,
+   "toolResults": [
+    {
+     "tool": "lookup_order",
+     "result": {
+      "order_id": "NW-1042",
+      "customer": {
+       "id": "cus_311",
+       "name": "Ana Ruiz",
+       "email": "ana.ruiz@example.com"
+      },
+      "items": [
+       {
+        "sku": "TAB-8",
+        "name": "Tablet 8-inch",
+        "qty": 1,
+        "price": 49.9
+       }
+      ],
+      "total": 49.9,
+      "currency": "EUR",
+      "payment_id": "pay_8812",
+      "status": "delivered",
+      "delivered_at": "2026-10-20"
+     }
+    },
+    {
+     "tool": "issue_refund",
+     "result": {
+      "refund_id": "rf_80874702d0",
+      "status": "accepted",
+      "amount": 49.9,
+      "currency": "EUR"
+     }
+    },
+    {
+     "tool": "notify_customer",
+     "result": {
+      "message_id": "msg_f22caf82f3",
+      "status": "sent"
+     }
+    }
+   ],
+   "modelCalls": 6,
+   "tokens": {
+    "input": 3762,
+    "cacheRead": 2576,
+    "output": 814
+   },
+   "traceId": "a267e1f481bef2b2deadc563a2863581",
+   "spanCount": 33,
+   "ticketMs": 14720.5,
+   "errorSpanCount": 10,
+   "rootCauses": [
+    {
+     "service": "payments-svc",
+     "span": "db.pool.acquire payments-db",
+     "errorType": "pool_timeout",
+     "count": 3
+    }
+   ],
+   "maskedAt": "POST /refunds",
+   "tools": [
+    {
+     "tool": "lookup_order",
+     "durMs": 6.1,
+     "status": "OK"
+    },
+    {
+     "tool": "issue_refund",
+     "durMs": 5358.2,
+     "status": "OK"
+    },
+    {
+     "tool": "notify_customer",
+     "durMs": 2025.0,
+     "status": "OK"
+    }
+   ],
+   "latencyByBucket": [
+    {
+     "bucket": "model",
+     "ms": 9289.5,
+     "share": 0.631
+    },
+    {
+     "bucket": "payments-svc",
+     "ms": 4526.1,
+     "share": 0.307
+    },
+    {
+     "bucket": "refunds-svc",
+     "ms": 809.7,
+     "share": 0.055
+    },
+    {
+     "bucket": "support-agent",
+     "ms": 78.6,
+     "share": 0.005
+    },
+    {
+     "bucket": "notify-svc",
+     "ms": 13.4,
+     "share": 0.001
+    },
+    {
+     "bucket": "orders-svc",
+     "ms": 3.1,
+     "share": 0.0
+    }
+   ]
+  },
+  {
+   "scenario": "fault",
+   "run": 3,
+   "dir": "out/fault-3",
+   "final": "All set, Ana! I've issued a full refund of €49.90 for your damaged tablet back to your original payment method, and there's no need to return the item. You'll also receive a confirmation email shortly — the refund should appear within a few business days depending on your bank.",
+   "judge": {
+    "score": 1,
+    "label": "pass",
+    "explanation": "The agent verified the order, issued the full €49.90 refund for the damaged tablet, notified the customer by email, and clearly confirmed the refund and no-return policy in the final reply."
+   },
+   "refundIssued": false,
+   "toolResults": [
+    {
+     "tool": "lookup_order",
+     "result": {
+      "order_id": "NW-1042",
+      "customer": {
+       "id": "cus_311",
+       "name": "Ana Ruiz",
+       "email": "ana.ruiz@example.com"
+      },
+      "items": [
+       {
+        "sku": "TAB-8",
+        "name": "Tablet 8-inch",
+        "qty": 1,
+        "price": 49.9
+       }
+      ],
+      "total": 49.9,
+      "currency": "EUR",
+      "payment_id": "pay_8812",
+      "status": "delivered",
+      "delivered_at": "2026-10-20"
+     }
+    },
+    {
+     "tool": "issue_refund",
+     "result": {
+      "refund_id": "rf_6054bfa307",
+      "status": "accepted",
+      "amount": 49.9,
+      "currency": "EUR"
+     }
+    },
+    {
+     "tool": "notify_customer",
+     "result": {
+      "message_id": "msg_3e3357ecf3",
+      "status": "sent"
+     }
+    }
+   ],
+   "modelCalls": 6,
+   "tokens": {
+    "input": 3853,
+    "cacheRead": 2596,
+    "output": 951
+   },
+   "traceId": "8d9c577270346f0f933ef1192f096b23",
+   "spanCount": 33,
+   "ticketMs": 15220.7,
+   "errorSpanCount": 10,
+   "rootCauses": [
+    {
+     "service": "payments-svc",
+     "span": "db.pool.acquire payments-db",
+     "errorType": "pool_timeout",
+     "count": 3
+    }
+   ],
+   "maskedAt": "POST /refunds",
+   "tools": [
+    {
+     "tool": "lookup_order",
+     "durMs": 20.1,
+     "status": "OK"
+    },
+    {
+     "tool": "issue_refund",
+     "durMs": 5324.4,
+     "status": "OK"
+    },
+    {
+     "tool": "notify_customer",
+     "durMs": 2704.9,
+     "status": "OK"
+    }
+   ],
+   "latencyByBucket": [
+    {
+     "bucket": "model",
+     "ms": 9813.9,
+     "share": 0.645
+    },
+    {
+     "bucket": "payments-svc",
+     "ms": 4510.3,
+     "share": 0.296
+    },
+    {
+     "bucket": "refunds-svc",
+     "ms": 800.4,
+     "share": 0.053
+    },
+    {
+     "bucket": "support-agent",
+     "ms": 71.5,
+     "share": 0.005
+    },
+    {
+     "bucket": "notify-svc",
+     "ms": 15.4,
+     "share": 0.001
+    },
+    {
+     "bucket": "orders-svc",
+     "ms": 9.1,
+     "share": 0.001
+    }
+   ]
+  },
+  {
+   "scenario": "healthy",
+   "run": 1,
+   "dir": "out/healthy-1",
+   "final": "All set, Ana! I've issued a full refund of €49.90 for order NW-1042 back to your original payment method, and the refund is already settled. You don't need to return the damaged tablet, and a confirmation email is on its way to you. Sorry again for the inconvenience — is there anything else I can help with?",
+   "judge": {
+    "score": 1,
+    "label": "pass",
+    "explanation": "The agent verified the order, issued a full refund of €49.90 matching the order total, notified the customer, and clearly confirmed the resolution in the reply."
+   },
+   "refundIssued": true,
+   "toolResults": [
+    {
+     "tool": "lookup_order",
+     "result": {
+      "order_id": "NW-1042",
+      "customer": {
+       "id": "cus_311",
+       "name": "Ana Ruiz",
+       "email": "ana.ruiz@example.com"
+      },
+      "items": [
+       {
+        "sku": "TAB-8",
+        "name": "Tablet 8-inch",
+        "qty": 1,
+        "price": 49.9
+       }
+      ],
+      "total": 49.9,
+      "currency": "EUR",
+      "payment_id": "pay_8812",
+      "status": "delivered",
+      "delivered_at": "2026-10-20"
+     }
+    },
+    {
+     "tool": "issue_refund",
+     "result": {
+      "refund_id": "re_e9d4134b83",
+      "status": "settled",
+      "amount": 49.9,
+      "currency": "EUR"
+     }
+    },
+    {
+     "tool": "notify_customer",
+     "result": {
+      "message_id": "msg_ee6909fd8f",
+      "status": "sent"
+     }
+    }
+   ],
+   "modelCalls": 6,
+   "tokens": {
+    "input": 3903,
+    "cacheRead": 2434,
+    "output": 862
+   },
+   "traceId": "ab2cbf81484c8c73de9538d97e214fc7",
+   "spanCount": 28,
+   "ticketMs": 8677.0,
+   "errorSpanCount": 0,
+   "rootCauses": [],
+   "maskedAt": null,
+   "tools": [
+    {
+     "tool": "lookup_order",
+     "durMs": 6.0,
+     "status": "OK"
+    },
+    {
+     "tool": "issue_refund",
+     "durMs": 53.3,
+     "status": "OK"
+    },
+    {
+     "tool": "notify_customer",
+     "durMs": 1667.6,
+     "status": "OK"
+    }
+   ],
+   "latencyByBucket": [
+    {
+     "bucket": "model",
+     "ms": 8543.3,
+     "share": 0.985
+    },
+    {
+     "bucket": "support-agent",
+     "ms": 53.9,
+     "share": 0.006
+    },
+    {
+     "bucket": "refunds-svc",
+     "ms": 39.2,
+     "share": 0.005
+    },
+    {
+     "bucket": "notify-svc",
+     "ms": 33.6,
+     "share": 0.004
+    },
+    {
+     "bucket": "payments-svc",
+     "ms": 4.8,
+     "share": 0.001
+    },
+    {
+     "bucket": "orders-svc",
+     "ms": 2.3,
+     "share": 0.0
+    }
+   ]
+  },
+  {
+   "scenario": "healthy",
+   "run": 2,
+   "dir": "out/healthy-2",
+   "final": "All set, Ana! Your full refund of €49.90 has been issued to your original payment method, and no return of the tablet is needed. You'll also receive a confirmation email shortly. Sorry for the trouble with the damaged screen!",
+   "judge": {
+    "score": 0.9,
+    "label": "pass",
+    "explanation": "The agent verified the order, issued the full €49.90 refund for the damaged tablet, and notified the customer; the only minor issue is the unsupported claim that no return was needed."
+   },
+   "refundIssued": true,
+   "toolResults": [
+    {
+     "tool": "lookup_order",
+     "result": {
+      "order_id": "NW-1042",
+      "customer": {
+       "id": "cus_311",
+       "name": "Ana Ruiz",
+       "email": "ana.ruiz@example.com"
+      },
+      "items": [
+       {
+        "sku": "TAB-8",
+        "name": "Tablet 8-inch",
+        "qty": 1,
+        "price": 49.9
+       }
+      ],
+      "total": 49.9,
+      "currency": "EUR",
+      "payment_id": "pay_8812",
+      "status": "delivered",
+      "delivered_at": "2026-10-20"
+     }
+    },
+    {
+     "tool": "issue_refund",
+     "result": {
+      "refund_id": "re_223a0ea18c",
+      "status": "settled",
+      "amount": 49.9,
+      "currency": "EUR"
+     }
+    },
+    {
+     "tool": "notify_customer",
+     "result": {
+      "message_id": "msg_ca39461bd7",
+      "status": "sent"
+     }
+    }
+   ],
+   "modelCalls": 6,
+   "tokens": {
+    "input": 3791,
+    "cacheRead": 2404,
+    "output": 964
+   },
+   "traceId": "773a416db5670ce606e5545fb2bcac71",
+   "spanCount": 28,
+   "ticketMs": 8996.4,
+   "errorSpanCount": 0,
+   "rootCauses": [],
+   "maskedAt": null,
+   "tools": [
+    {
+     "tool": "lookup_order",
+     "durMs": 7.5,
+     "status": "OK"
+    },
+    {
+     "tool": "issue_refund",
+     "durMs": 92.4,
+     "status": "OK"
+    },
+    {
+     "tool": "notify_customer",
+     "durMs": 2066.4,
+     "status": "OK"
+    }
+   ],
+   "latencyByBucket": [
+    {
+     "bucket": "model",
+     "ms": 8816.2,
+     "share": 0.98
+    },
+    {
+     "bucket": "support-agent",
+     "ms": 75.9,
+     "share": 0.008
+    },
+    {
+     "bucket": "refunds-svc",
+     "ms": 72.9,
+     "share": 0.008
+    },
+    {
+     "bucket": "notify-svc",
+     "ms": 21.4,
+     "share": 0.002
+    },
+    {
+     "bucket": "payments-svc",
+     "ms": 6.6,
+     "share": 0.001
+    },
+    {
+     "bucket": "orders-svc",
+     "ms": 3.4,
+     "share": 0.0
+    }
+   ]
+  },
+  {
+   "scenario": "healthy",
+   "run": 3,
+   "dir": "out/healthy-3",
+   "final": "Good news, Ana — your refund is all set. I've refunded the full €49.90 for your Tablet 8-inch to your original payment method, and since the item arrived damaged, there's no need to send it back. You'll receive a confirmation email shortly, and the funds should appear within a few business days depending on your bank. Sorry for the hassle with the cracked screen!",
+   "judge": {
+    "score": 1,
+    "label": "pass",
+    "explanation": "The agent verified the delivered order, issued the full €49.90 refund for the damaged item, notified the customer by email, and clearly confirmed the resolution including that no return is needed."
+   },
+   "refundIssued": true,
+   "toolResults": [
+    {
+     "tool": "lookup_order",
+     "result": {
+      "order_id": "NW-1042",
+      "customer": {
+       "id": "cus_311",
+       "name": "Ana Ruiz",
+       "email": "ana.ruiz@example.com"
+      },
+      "items": [
+       {
+        "sku": "TAB-8",
+        "name": "Tablet 8-inch",
+        "qty": 1,
+        "price": 49.9
+       }
+      ],
+      "total": 49.9,
+      "currency": "EUR",
+      "payment_id": "pay_8812",
+      "status": "delivered",
+      "delivered_at": "2026-10-20"
+     }
+    },
+    {
+     "tool": "issue_refund",
+     "result": {
+      "refund_id": "re_4ae5659949",
+      "status": "settled",
+      "amount": 49.9,
+      "currency": "EUR"
+     }
+    },
+    {
+     "tool": "notify_customer",
+     "result": {
+      "message_id": "msg_a2c9818719",
+      "status": "sent"
+     }
+    }
+   ],
+   "modelCalls": 6,
+   "tokens": {
+    "input": 3856,
+    "cacheRead": 2600,
+    "output": 900
+   },
+   "traceId": "91bd47c55600ce821bfa2052468f1656",
+   "spanCount": 28,
+   "ticketMs": 10064.0,
+   "errorSpanCount": 0,
+   "rootCauses": [],
+   "maskedAt": null,
+   "tools": [
+    {
+     "tool": "lookup_order",
+     "durMs": 7.3,
+     "status": "OK"
+    },
+    {
+     "tool": "issue_refund",
+     "durMs": 73.4,
+     "status": "OK"
+    },
+    {
+     "tool": "notify_customer",
+     "durMs": 2155.9,
+     "status": "OK"
+    }
+   ],
+   "latencyByBucket": [
+    {
+     "bucket": "model",
+     "ms": 9919.7,
+     "share": 0.986
+    },
+    {
+     "bucket": "support-agent",
+     "ms": 73.5,
+     "share": 0.007
+    },
+    {
+     "bucket": "refunds-svc",
+     "ms": 51.1,
+     "share": 0.005
+    },
+    {
+     "bucket": "notify-svc",
+     "ms": 11.5,
+     "share": 0.001
+    },
+    {
+     "bucket": "payments-svc",
+     "ms": 5.4,
+     "share": 0.001
+    },
+    {
+     "bucket": "orders-svc",
+     "ms": 2.8,
+     "share": 0.0
+    }
+   ]
+  }
+ ],
+ "totals": {
+  "runs": 6,
+  "modelCalls": 36,
+  "inputTokens": 22995,
+  "cacheReadTokens": 15025,
+  "outputTokens": 5468
+ }
+}

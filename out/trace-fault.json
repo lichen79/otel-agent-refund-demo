@@ -1,0 +1,1438 @@
+{
+ "traceId": "0b54886c29274784090b2a816200ec77",
+ "scenario": "fault",
+ "run": 1,
+ "spans": [
+  {
+   "name": "handle_ticket",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x6a4f244be0ac5d0d",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.SERVER",
+   "parent_id": null,
+   "start_time": "2026-10-22T22:14:37.801367Z",
+   "end_time": "2026-10-22T22:14:54.574491Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "ticket.id": "T-5521",
+    "order.id": "NW-1042",
+    "customer.id": "cus_311",
+    "gen_ai.conversation.id": "T-5521"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.messages.tool_runner",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x3d27f8384a6e8618",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.INTERNAL",
+   "parent_id": "0x6a4f244be0ac5d0d",
+   "start_time": "2026-10-22T22:14:37.801500Z",
+   "end_time": "2026-10-22T22:14:54.574159Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "gen_ai.operation.name": "invoke_agent",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.request.model": "kimi-k3"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.messages.create",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x558d391eb1b88e89",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x3d27f8384a6e8618",
+   "start_time": "2026-10-22T22:14:37.811936Z",
+   "end_time": "2026-10-22T22:14:40.164110Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "server.address": "127.0.0.1",
+    "server.port": 4000,
+    "http.request.method": "POST",
+    "http.route": "/v1/messages",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.operation.name": "chat",
+    "gen_ai.request.model": "kimi-k3",
+    "gen_ai.request.max_tokens": 1024,
+    "url.scheme": "http",
+    "url.path": "/v1/messages",
+    "url.full": "http://127.0.0.1:4000/v1/messages",
+    "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfYWU3cHo2MmN0a2Z0b3NvNTRhZ2d3Y3dsemJ4emJuZHZ2Nm9idWJraHJpcjU0MmZhdXpkYQ==",
+    "gen_ai.response.model": "kimi-k3",
+    "anthropic.message.stop_reason": "tool_use",
+    "gen_ai.usage.input_tokens": 464,
+    "gen_ai.usage.cache_read.input_tokens": 457,
+    "gen_ai.usage.output_tokens": 188,
+    "gen_ai.system_instructions": "[{\"type\":\"text\",\"content\":\"You are the refund agent for Northwind, an online electronics shop. Policy: an item that arrived damaged is refunded in full to the original payment method; no return is needed. Steps: look up the order, issue the refund for the order total, then email the customer a one-line summary with notify_customer. Finish with a short reply to the customer, two or three sentences.\"}]",
+    "gen_ai.input.messages": "[{\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"content\":\"Hi, my order NW-1042 arrived today with a cracked screen. Can I get my money back? Ana\"}]}]",
+    "gen_ai.output.messages": "[{\"role\":\"assistant\",\"parts\":[{\"type\":\"text\",\"content\":\"I'm sorry to hear your order arrived damaged, Ana. Let me look that up right away.\"},{\"type\":\"tool_call\",\"id\":\"call_839aa7cf146258e083355d333fef3085\",\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"NW-1042\"}}]}]",
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.custom_tool_use lookup_order",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x9c8279b61c4cc9b0",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.INTERNAL",
+   "parent_id": "0x3d27f8384a6e8618",
+   "start_time": "2026-10-22T22:14:40.164770Z",
+   "end_time": "2026-10-22T22:14:40.170166Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "gen_ai.operation.name": "execute_tool",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.tool.name": "lookup_order",
+    "gen_ai.tool.description": "Look up an order by id. Returns the customer, items, total and payment details.",
+    "gen_ai.tool.call.id": "call_839aa7cf146258e083355d333fef3085",
+    "gen_ai.tool.type": "function",
+    "gen_ai.tool.call.arguments": "{\"order_id\":\"NW-1042\"}",
+    "anthropic.tool_result.content": "[{\"type\":\"text\",\"text\":\"{\\\"order_id\\\":\\\"NW-1042\\\",\\\"customer\\\":{\\\"id\\\":\\\"cus_311\\\",\\\"name\\\":\\\"Ana Ruiz\\\",\\\"email\\\":\\\"ana.ruiz@example.com\\\"},\\\"items\\\":[{\\\"sku\\\":\\\"TAB-8\\\",\\\"name\\\":\\\"Tablet 8-inch\\\",\\\"qty\\\":1,\\\"price\\\":49.9}],\\\"total\\\":49.9,\\\"currency\\\":\\\"EUR\\\",\\\"payment_id\\\":\\\"pay_8812\\\",\\\"status\\\":\\\"delivered\\\",\\\"delivered_at\\\":\\\"2026-10-20\\\"}\"}]"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "GET",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xd56fb127986ed7d1",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x9c8279b61c4cc9b0",
+   "start_time": "2026-10-22T22:14:40.165160Z",
+   "end_time": "2026-10-22T22:14:40.169320Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "http.request.method": "GET",
+    "url.full": "http://127.0.0.1:7611/orders/NW-1042",
+    "server.address": "127.0.0.1",
+    "network.peer.address": "127.0.0.1",
+    "server.port": 7611,
+    "network.peer.port": 7611,
+    "http.response.status_code": 200,
+    "network.protocol.version": "1.1"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "GET /orders/{order_id}",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x43fcbf6348f69309",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.SERVER",
+   "parent_id": "0xd56fb127986ed7d1",
+   "start_time": "2026-10-22T22:14:40.167692Z",
+   "end_time": "2026-10-22T22:14:40.169189Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "url.scheme": "http",
+    "server.address": "127.0.0.1:7611",
+    "server.port": 7611,
+    "network.protocol.version": "1.1",
+    "url.path": "/orders/NW-1042",
+    "http.request.method": "GET",
+    "user_agent.original": "python-httpx/0.28.1",
+    "client.address": "127.0.0.1",
+    "client.port": 53007,
+    "http.route": "/orders/{order_id}",
+    "http.request.header.traceparent": [
+     "00-0b54886c29274784090b2a816200ec77-d56fb127986ed7d1-03"
+    ],
+    "order.id": "NW-1042",
+    "order.total": 49.9,
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ad755f71-4206-42f1-bb98-c5485bb40109",
+     "service.name": "orders-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.messages.create",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x36cc0a5f9e875f9b",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x3d27f8384a6e8618",
+   "start_time": "2026-10-22T22:14:40.172007Z",
+   "end_time": "2026-10-22T22:14:42.939316Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "server.address": "127.0.0.1",
+    "server.port": 4000,
+    "http.request.method": "POST",
+    "http.route": "/v1/messages",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.operation.name": "chat",
+    "gen_ai.request.model": "kimi-k3",
+    "gen_ai.request.max_tokens": 1024,
+    "url.scheme": "http",
+    "url.path": "/v1/messages",
+    "url.full": "http://127.0.0.1:4000/v1/messages",
+    "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfMndobG00N25hYzI3cW8yamxia2tkeGdycHpiNWZ4anVoY3J3cmF3YTRjeXBwcWxydGNqYQ==",
+    "gen_ai.response.model": "kimi-k3",
+    "anthropic.message.stop_reason": "tool_use",
+    "gen_ai.usage.input_tokens": 659,
+    "gen_ai.usage.cache_read.input_tokens": 457,
+    "gen_ai.usage.output_tokens": 230,
+    "gen_ai.system_instructions": "[{\"type\":\"text\",\"content\":\"You are the refund agent for Northwind, an online electronics shop. Policy: an item that arrived damaged is refunded in full to the original payment method; no return is needed. Steps: look up the order, issue the refund for the order total, then email the customer a one-line summary with notify_customer. Finish with a short reply to the customer, two or three sentences.\"}]",
+    "gen_ai.input.messages": "[{\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"content\":\"Hi, my order NW-1042 arrived today with a cracked screen. Can I get my money back? Ana\"}]},{\"role\":\"assistant\",\"parts\":[{\"type\":\"text\",\"content\":\"I'm sorry to hear your order arrived damaged, Ana. Let me look that up right away.\"},{\"type\":\"tool_call\",\"id\":\"call_839aa7cf146258e083355d333fef3085\",\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"NW-1042\"}}]},{\"role\":\"user\",\"parts\":[{\"type\":\"tool_call_response\",\"id\":\"call_839aa7cf146258e083355d333fef3085\",\"response\":[{\"type\":\"text\",\"text\":\"{\\\"order_id\\\":\\\"NW-1042\\\",\\\"customer\\\":{\\\"id\\\":\\\"cus_311\\\",\\\"name\\\":\\\"Ana Ruiz\\\",\\\"email\\\":\\\"ana.ruiz@example.com\\\"},\\\"items\\\":[{\\\"sku\\\":\\\"TAB-8\\\",\\\"name\\\":\\\"Tablet 8-inch\\\",\\\"qty\\\":1,\\\"price\\\":49.9}],\\\"total\\\":49.9,\\\"currency\\\":\\\"EUR\\\",\\\"payment_id\\\":\\\"pay_8812\\\",\\\"status\\\":\\\"delivered\\\",\\\"delivered_at\\\":\\\"2026-10-20\\\"}\"}]}]}]",
+    "gen_ai.output.messages": "[{\"role\":\"assistant\",\"parts\":[{\"type\":\"text\",\"content\":\"I can see your order — a Tablet 8-inch for €49.90, delivered today. Since it arrived damaged, I'll issue a full refund to your original payment method, and you don't need to return the item.\"},{\"type\":\"tool_call\",\"id\":\"call_2181826c2f0052398edcd2a4e92d96d2\",\"name\":\"issue_refund\",\"arguments\":{\"order_id\":\"NW-1042\",\"amount\":49.9,\"reason\":\"Item arrived damaged (cracked screen)\"}}]}]",
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.custom_tool_use issue_refund",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xbfcc412fde79e574",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.INTERNAL",
+   "parent_id": "0x3d27f8384a6e8618",
+   "start_time": "2026-10-22T22:14:42.940327Z",
+   "end_time": "2026-10-22T22:14:48.284464Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "gen_ai.operation.name": "execute_tool",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.tool.name": "issue_refund",
+    "gen_ai.tool.description": "Refund an order to the original payment method. Returns the refund id and status.",
+    "gen_ai.tool.call.id": "call_2181826c2f0052398edcd2a4e92d96d2",
+    "gen_ai.tool.type": "function",
+    "gen_ai.tool.call.arguments": "{\"order_id\":\"NW-1042\",\"amount\":49.9,\"reason\":\"Item arrived damaged (cracked screen)\"}",
+    "anthropic.tool_result.content": "[{\"type\":\"text\",\"text\":\"{\\\"refund_id\\\":\\\"rf_d4e804e8df\\\",\\\"status\\\":\\\"accepted\\\",\\\"amount\\\":49.9,\\\"currency\\\":\\\"EUR\\\"}\"}]"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x41c58fa628bc74e9",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0xbfcc412fde79e574",
+   "start_time": "2026-10-22T22:14:42.941260Z",
+   "end_time": "2026-10-22T22:14:48.278602Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "http.request.method": "POST",
+    "url.full": "http://127.0.0.1:7612/refunds",
+    "server.address": "127.0.0.1",
+    "network.peer.address": "127.0.0.1",
+    "server.port": 7612,
+    "network.peer.port": 7612,
+    "http.response.status_code": 202,
+    "network.protocol.version": "1.1"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST /refunds",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x0c0a7d15530e7a97",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.SERVER",
+   "parent_id": "0x41c58fa628bc74e9",
+   "start_time": "2026-10-22T22:14:42.946571Z",
+   "end_time": "2026-10-22T22:14:48.273782Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "url.scheme": "http",
+    "server.address": "127.0.0.1:7612",
+    "server.port": 7612,
+    "network.protocol.version": "1.1",
+    "url.path": "/refunds",
+    "http.request.method": "POST",
+    "user_agent.original": "python-httpx/0.28.1",
+    "client.address": "127.0.0.1",
+    "client.port": 53036,
+    "http.route": "/refunds",
+    "http.request.header.traceparent": [
+     "00-0b54886c29274784090b2a816200ec77-41c58fa628bc74e9-03"
+    ],
+    "order.id": "NW-1042",
+    "refund.amount": 49.9,
+    "refund.status": "accepted",
+    "refund.payment_attempts": 3,
+    "refund.fallback": "outbox",
+    "http.response.status_code": 202
+   },
+   "events": [
+    {
+     "name": "refund queued to outbox",
+     "timestamp": "2026-10-22T22:14:48.271322Z",
+     "attributes": {
+      "refund.id": "rf_d4e804e8df",
+      "refund.last_error": "payments ReadTimeout"
+     }
+    }
+   ],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "6b52f6dd-69d6-4ff5-a981-beee18e9d91b",
+     "service.name": "refunds-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "GET",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x77765afa52cb5434",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x0c0a7d15530e7a97",
+   "start_time": "2026-10-22T22:14:42.981039Z",
+   "end_time": "2026-10-22T22:14:42.984046Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "http.request.method": "GET",
+    "url.full": "http://127.0.0.1:7611/orders/NW-1042",
+    "server.address": "127.0.0.1",
+    "network.peer.address": "127.0.0.1",
+    "server.port": 7611,
+    "network.peer.port": 7611,
+    "http.response.status_code": 200,
+    "network.protocol.version": "1.1"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "6b52f6dd-69d6-4ff5-a981-beee18e9d91b",
+     "service.name": "refunds-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "GET /orders/{order_id}",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x6c9fa570356dcc77",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.SERVER",
+   "parent_id": "0x77765afa52cb5434",
+   "start_time": "2026-10-22T22:14:42.983135Z",
+   "end_time": "2026-10-22T22:14:42.983865Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "url.scheme": "http",
+    "server.address": "127.0.0.1:7611",
+    "server.port": 7611,
+    "network.protocol.version": "1.1",
+    "url.path": "/orders/NW-1042",
+    "http.request.method": "GET",
+    "user_agent.original": "python-httpx/0.28.1",
+    "client.address": "127.0.0.1",
+    "client.port": 53038,
+    "http.route": "/orders/{order_id}",
+    "http.request.header.traceparent": [
+     "00-0b54886c29274784090b2a816200ec77-77765afa52cb5434-03"
+    ],
+    "order.id": "NW-1042",
+    "order.total": 49.9,
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ad755f71-4206-42f1-bb98-c5485bb40109",
+     "service.name": "orders-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x9fa8b272ec8ce55d",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x0c0a7d15530e7a97",
+   "start_time": "2026-10-22T22:14:42.984716Z",
+   "end_time": "2026-10-22T22:14:44.496254Z",
+   "status": {
+    "status_code": "ERROR",
+    "description": "ReadTimeout: timed out"
+   },
+   "attributes": {
+    "http.request.method": "POST",
+    "url.full": "http://127.0.0.1:7613/v1/refunds",
+    "server.address": "127.0.0.1",
+    "network.peer.address": "127.0.0.1",
+    "server.port": 7613,
+    "network.peer.port": 7613,
+    "error.type": "ReadTimeout"
+   },
+   "events": [
+    {
+     "name": "exception",
+     "timestamp": "2026-10-22T22:14:44.496207Z",
+     "attributes": {
+      "exception.type": "httpx.ReadTimeout",
+      "exception.message": "timed out",
+      "exception.stacktrace": "Traceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 103, in handle_request\n    return self._connection.handle_request(request)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 136, in handle_request\n    raise exc\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 106, in handle_request\n    ) = self._receive_response_headers(**kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 177, in _receive_response_headers\n    event = self._receive_event(timeout=timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 217, in _receive_event\n    data = self._network_stream.read(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 126, in read\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ReadTimeout: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 602, in use_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1136, in start_as_current_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1407, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1364, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ReadTimeout: timed out\n",
+      "exception.escaped": "False"
+     }
+    }
+   ],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "6b52f6dd-69d6-4ff5-a981-beee18e9d91b",
+     "service.name": "refunds-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST /v1/refunds",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x7cdcb3e3885a6cf1",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.SERVER",
+   "parent_id": "0x9fa8b272ec8ce55d",
+   "start_time": "2026-10-22T22:14:42.987216Z",
+   "end_time": "2026-10-22T22:14:45.999549Z",
+   "status": {
+    "status_code": "ERROR"
+   },
+   "attributes": {
+    "url.scheme": "http",
+    "server.address": "127.0.0.1:7613",
+    "server.port": 7613,
+    "network.protocol.version": "1.1",
+    "url.path": "/v1/refunds",
+    "http.request.method": "POST",
+    "user_agent.original": "python-httpx/0.28.1",
+    "client.address": "127.0.0.1",
+    "client.port": 53039,
+    "http.route": "/v1/refunds",
+    "http.request.header.traceparent": [
+     "00-0b54886c29274784090b2a816200ec77-9fa8b272ec8ce55d-03"
+    ],
+    "http.response.status_code": 503,
+    "error.type": "503"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "3aa55d16-857f-44f3-a071-daed0bbaf79d",
+     "service.name": "payments-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "db.pool.acquire payments-db",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xd3659d74eeff1c30",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x7cdcb3e3885a6cf1",
+   "start_time": "2026-10-22T22:14:42.991326Z",
+   "end_time": "2026-10-22T22:14:45.996767Z",
+   "status": {
+    "status_code": "ERROR",
+    "description": "no connection free after 3.0s"
+   },
+   "attributes": {
+    "db.system.name": "sqlite",
+    "db.client.connection.pool.name": "payments-db",
+    "db.client.connection.pool.max": 4,
+    "db.client.connection.pool.in_use": 4,
+    "db.client.connection.pool.wait_timeout_s": 3.0,
+    "error.type": "pool_timeout"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "3aa55d16-857f-44f3-a071-daed0bbaf79d",
+     "service.name": "payments-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x5b1f86ee57e9963b",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x0c0a7d15530e7a97",
+   "start_time": "2026-10-22T22:14:44.751263Z",
+   "end_time": "2026-10-22T22:14:46.256741Z",
+   "status": {
+    "status_code": "ERROR",
+    "description": "ReadTimeout: timed out"
+   },
+   "attributes": {
+    "http.request.method": "POST",
+    "url.full": "http://127.0.0.1:7613/v1/refunds",
+    "server.address": "127.0.0.1",
+    "network.peer.address": "127.0.0.1",
+    "server.port": 7613,
+    "network.peer.port": 7613,
+    "http.request.resend_count": 1,
+    "error.type": "ReadTimeout"
+   },
+   "events": [
+    {
+     "name": "exception",
+     "timestamp": "2026-10-22T22:14:46.256684Z",
+     "attributes": {
+      "exception.type": "httpx.ReadTimeout",
+      "exception.message": "timed out",
+      "exception.stacktrace": "Traceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 103, in handle_request\n    return self._connection.handle_request(request)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 136, in handle_request\n    raise exc\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 106, in handle_request\n    ) = self._receive_response_headers(**kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 177, in _receive_response_headers\n    event = self._receive_event(timeout=timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 217, in _receive_event\n    data = self._network_stream.read(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 126, in read\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ReadTimeout: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 602, in use_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1136, in start_as_current_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1407, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1364, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ReadTimeout: timed out\n",
+      "exception.escaped": "False"
+     }
+    }
+   ],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "6b52f6dd-69d6-4ff5-a981-beee18e9d91b",
+     "service.name": "refunds-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST /v1/refunds",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x24f2337fe67ec007",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.SERVER",
+   "parent_id": "0x5b1f86ee57e9963b",
+   "start_time": "2026-10-22T22:14:44.753232Z",
+   "end_time": "2026-10-22T22:14:47.760761Z",
+   "status": {
+    "status_code": "ERROR"
+   },
+   "attributes": {
+    "url.scheme": "http",
+    "server.address": "127.0.0.1:7613",
+    "server.port": 7613,
+    "network.protocol.version": "1.1",
+    "url.path": "/v1/refunds",
+    "http.request.method": "POST",
+    "user_agent.original": "python-httpx/0.28.1",
+    "client.address": "127.0.0.1",
+    "client.port": 53057,
+    "http.route": "/v1/refunds",
+    "http.request.header.traceparent": [
+     "00-0b54886c29274784090b2a816200ec77-5b1f86ee57e9963b-03"
+    ],
+    "http.response.status_code": 503,
+    "error.type": "503"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "3aa55d16-857f-44f3-a071-daed0bbaf79d",
+     "service.name": "payments-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "db.pool.acquire payments-db",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xfec2862940adcd90",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x24f2337fe67ec007",
+   "start_time": "2026-10-22T22:14:44.754777Z",
+   "end_time": "2026-10-22T22:14:47.759971Z",
+   "status": {
+    "status_code": "ERROR",
+    "description": "no connection free after 3.0s"
+   },
+   "attributes": {
+    "db.system.name": "sqlite",
+    "db.client.connection.pool.name": "payments-db",
+    "db.client.connection.pool.max": 4,
+    "db.client.connection.pool.in_use": 4,
+    "db.client.connection.pool.wait_timeout_s": 3.0,
+    "error.type": "pool_timeout"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "3aa55d16-857f-44f3-a071-daed0bbaf79d",
+     "service.name": "payments-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x28fe621475316095",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x0c0a7d15530e7a97",
+   "start_time": "2026-10-22T22:14:46.762151Z",
+   "end_time": "2026-10-22T22:14:48.270098Z",
+   "status": {
+    "status_code": "ERROR",
+    "description": "ReadTimeout: timed out"
+   },
+   "attributes": {
+    "http.request.method": "POST",
+    "url.full": "http://127.0.0.1:7613/v1/refunds",
+    "server.address": "127.0.0.1",
+    "network.peer.address": "127.0.0.1",
+    "server.port": 7613,
+    "network.peer.port": 7613,
+    "http.request.resend_count": 2,
+    "error.type": "ReadTimeout"
+   },
+   "events": [
+    {
+     "name": "exception",
+     "timestamp": "2026-10-22T22:14:48.270074Z",
+     "attributes": {
+      "exception.type": "httpx.ReadTimeout",
+      "exception.message": "timed out",
+      "exception.stacktrace": "Traceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/connection.py\", line 103, in handle_request\n    return self._connection.handle_request(request)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 136, in handle_request\n    raise exc\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 106, in handle_request\n    ) = self._receive_response_headers(**kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 177, in _receive_response_headers\n    event = self._receive_event(timeout=timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_sync/http11.py\", line 217, in _receive_event\n    data = self._network_stream.read(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_backends/sync.py\", line 126, in read\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ReadTimeout: timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 602, in use_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1136, in start_as_current_span\n    yield span\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1407, in _handle_request_wrapper\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/httpx/__init__.py\", line 1364, in _handle_request_wrapper\n    response = wrapped(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/path/to/otel-agent-refund-demo/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ReadTimeout: timed out\n",
+      "exception.escaped": "False"
+     }
+    }
+   ],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "6b52f6dd-69d6-4ff5-a981-beee18e9d91b",
+     "service.name": "refunds-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST /v1/refunds",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xa40bcea18623d355",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.SERVER",
+   "parent_id": "0x28fe621475316095",
+   "start_time": "2026-10-22T22:14:46.766539Z",
+   "end_time": "2026-10-22T22:14:49.781452Z",
+   "status": {
+    "status_code": "ERROR"
+   },
+   "attributes": {
+    "url.scheme": "http",
+    "server.address": "127.0.0.1:7613",
+    "server.port": 7613,
+    "network.protocol.version": "1.1",
+    "url.path": "/v1/refunds",
+    "http.request.method": "POST",
+    "user_agent.original": "python-httpx/0.28.1",
+    "client.address": "127.0.0.1",
+    "client.port": 53079,
+    "http.route": "/v1/refunds",
+    "http.request.header.traceparent": [
+     "00-0b54886c29274784090b2a816200ec77-28fe621475316095-03"
+    ],
+    "http.response.status_code": 503,
+    "error.type": "503"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "3aa55d16-857f-44f3-a071-daed0bbaf79d",
+     "service.name": "payments-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "db.pool.acquire payments-db",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x46208168bcc320c6",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0xa40bcea18623d355",
+   "start_time": "2026-10-22T22:14:46.768454Z",
+   "end_time": "2026-10-22T22:14:49.774587Z",
+   "status": {
+    "status_code": "ERROR",
+    "description": "no connection free after 3.0s"
+   },
+   "attributes": {
+    "db.system.name": "sqlite",
+    "db.client.connection.pool.name": "payments-db",
+    "db.client.connection.pool.max": 4,
+    "db.client.connection.pool.in_use": 4,
+    "db.client.connection.pool.wait_timeout_s": 3.0,
+    "error.type": "pool_timeout"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "3aa55d16-857f-44f3-a071-daed0bbaf79d",
+     "service.name": "payments-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.messages.create",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x9e75ae6de0474a89",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x3d27f8384a6e8618",
+   "start_time": "2026-10-22T22:14:48.290114Z",
+   "end_time": "2026-10-22T22:14:50.252270Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "server.address": "127.0.0.1",
+    "server.port": 4000,
+    "http.request.method": "POST",
+    "http.route": "/v1/messages",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.operation.name": "chat",
+    "gen_ai.request.model": "kimi-k3",
+    "gen_ai.request.max_tokens": 1024,
+    "url.scheme": "http",
+    "url.path": "/v1/messages",
+    "url.full": "http://127.0.0.1:4000/v1/messages",
+    "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfemZmeHM2NXc0a3p4eWc3aGpzdW83amNrZnltanhraHFlYXZnYjU0NGk1ZGQzNmQ1NWxvYQ==",
+    "gen_ai.response.model": "kimi-k3",
+    "anthropic.message.stop_reason": "tool_use",
+    "gen_ai.usage.input_tokens": 856,
+    "gen_ai.usage.cache_read.input_tokens": 652,
+    "gen_ai.usage.output_tokens": 119,
+    "gen_ai.system_instructions": "[{\"type\":\"text\",\"content\":\"You are the refund agent for Northwind, an online electronics shop. Policy: an item that arrived damaged is refunded in full to the original payment method; no return is needed. Steps: look up the order, issue the refund for the order total, then email the customer a one-line summary with notify_customer. Finish with a short reply to the customer, two or three sentences.\"}]",
+    "gen_ai.input.messages": "[{\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"content\":\"Hi, my order NW-1042 arrived today with a cracked screen. Can I get my money back? Ana\"}]},{\"role\":\"assistant\",\"parts\":[{\"type\":\"text\",\"content\":\"I'm sorry to hear your order arrived damaged, Ana. Let me look that up right away.\"},{\"type\":\"tool_call\",\"id\":\"call_839aa7cf146258e083355d333fef3085\",\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"NW-1042\"}}]},{\"role\":\"user\",\"parts\":[{\"type\":\"tool_call_response\",\"id\":\"call_839aa7cf146258e083355d333fef3085\",\"response\":[{\"type\":\"text\",\"text\":\"{\\\"order_id\\\":\\\"NW-1042\\\",\\\"customer\\\":{\\\"id\\\":\\\"cus_311\\\",\\\"name\\\":\\\"Ana Ruiz\\\",\\\"email\\\":\\\"ana.ruiz@example.com\\\"},\\\"items\\\":[{\\\"sku\\\":\\\"TAB-8\\\",\\\"name\\\":\\\"Tablet 8-inch\\\",\\\"qty\\\":1,\\\"price\\\":49.9}],\\\"total\\\":49.9,\\\"currency\\\":\\\"EUR\\\",\\\"payment_id\\\":\\\"pay_8812\\\",\\\"status\\\":\\\"delivered\\\",\\\"delivered_at\\\":\\\"2026-10-20\\\"}\"}]}]},{\"role\":\"assistant\",\"parts\":[{\"type\":\"text\",\"content\":\"I can see your order — a Tablet 8-inch for €49.90, delivered today. Since it arrived damaged, I'll issue a full refund to your original payment method, and you don't need to return the item.\"},{\"type\":\"tool_call\",\"id\":\"call_2181826c2f0052398edcd2a4e92d96d2\",\"name\":\"issue_refund\",\"arguments\":{\"order_id\":\"NW-1042\",\"amount\":49.9,\"reason\":\"Item arrived damaged (cracked screen)\"}}]},{\"role\":\"user\",\"parts\":[{\"type\":\"tool_call_response\",\"id\":\"call_2181826c2f0052398edcd2a4e92d96d2\",\"response\":[{\"type\":\"text\",\"text\":\"{\\\"refund_id\\\":\\\"rf_d4e804e8df\\\",\\\"status\\\":\\\"accepted\\\",\\\"amount\\\":49.9,\\\"currency\\\":\\\"EUR\\\"}\"}]}]}]",
+    "gen_ai.output.messages": "[{\"role\":\"assistant\",\"parts\":[{\"type\":\"tool_call\",\"id\":\"call_c37aaf179fe85e3ab94cb31fb32763cf\",\"name\":\"notify_customer\",\"arguments\":{\"order_id\":\"NW-1042\",\"email\":\"ana.ruiz@example.com\",\"summary\":\"Your order NW-1042 arrived damaged, so we've issued a full refund of €49.90 to your original payment method — no return needed.\"}}]}]",
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.custom_tool_use notify_customer",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x1a831054dec3631d",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.INTERNAL",
+   "parent_id": "0x3d27f8384a6e8618",
+   "start_time": "2026-10-22T22:14:50.274533Z",
+   "end_time": "2026-10-22T22:14:52.722101Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "gen_ai.operation.name": "execute_tool",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.tool.name": "notify_customer",
+    "gen_ai.tool.description": "Email the customer a short update about their order.",
+    "gen_ai.tool.call.id": "call_c37aaf179fe85e3ab94cb31fb32763cf",
+    "gen_ai.tool.type": "function",
+    "gen_ai.tool.call.arguments": "{\"order_id\":\"NW-1042\",\"email\":\"ana.ruiz@example.com\",\"summary\":\"Your order NW-1042 arrived damaged, so we've issued a full refund of €49.90 to your original payment method — no return needed.\"}",
+    "anthropic.tool_result.content": "[{\"type\":\"text\",\"text\":\"{\\\"message_id\\\":\\\"msg_d1ab74930c\\\",\\\"status\\\":\\\"sent\\\"}\"}]"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xe0179db8b36c664d",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x1a831054dec3631d",
+   "start_time": "2026-10-22T22:14:50.279182Z",
+   "end_time": "2026-10-22T22:14:52.717414Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "http.request.method": "POST",
+    "url.full": "http://127.0.0.1:7614/notifications",
+    "server.address": "127.0.0.1",
+    "network.peer.address": "127.0.0.1",
+    "server.port": 7614,
+    "network.peer.port": 7614,
+    "http.response.status_code": 200,
+    "network.protocol.version": "1.1"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "POST /notifications",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xa1efecf01811b62a",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.SERVER",
+   "parent_id": "0xe0179db8b36c664d",
+   "start_time": "2026-10-22T22:14:50.287483Z",
+   "end_time": "2026-10-22T22:14:52.714828Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "url.scheme": "http",
+    "server.address": "127.0.0.1:7614",
+    "server.port": 7614,
+    "network.protocol.version": "1.1",
+    "url.path": "/notifications",
+    "http.request.method": "POST",
+    "user_agent.original": "python-httpx/0.28.1",
+    "client.address": "127.0.0.1",
+    "client.port": 53118,
+    "http.route": "/notifications",
+    "http.request.header.traceparent": [
+     "00-0b54886c29274784090b2a816200ec77-e0179db8b36c664d-03"
+    ],
+    "notification.id": "msg_d1ab74930c",
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "1fcadd23-dfc8-45c6-8200-785584cf6ee3",
+     "service.name": "notify-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.messages.create",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x5e1e32a5e9f885f3",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0xa1efecf01811b62a",
+   "start_time": "2026-10-22T22:14:50.298653Z",
+   "end_time": "2026-10-22T22:14:52.711407Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "server.address": "127.0.0.1",
+    "server.port": 4000,
+    "http.request.method": "POST",
+    "http.route": "/v1/messages",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.operation.name": "chat",
+    "gen_ai.request.model": "kimi-k3",
+    "gen_ai.request.max_tokens": 300,
+    "url.scheme": "http",
+    "url.path": "/v1/messages",
+    "url.full": "http://127.0.0.1:4000/v1/messages",
+    "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfazJxY2t3b2dkYWhlbGFzb3I3c3F2dXB4MzRlMmx6b2FodmRobGJ0bWtzYndtMjRvb2JhYQ==",
+    "gen_ai.response.model": "kimi-k3",
+    "anthropic.message.stop_reason": "end_turn",
+    "gen_ai.usage.input_tokens": 157,
+    "gen_ai.usage.output_tokens": 198,
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "1fcadd23-dfc8-45c6-8200-785584cf6ee3",
+     "service.name": "notify-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.messages.create",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xc4559886a83df820",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x3d27f8384a6e8618",
+   "start_time": "2026-10-22T22:14:52.725459Z",
+   "end_time": "2026-10-22T22:14:54.571037Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "server.address": "127.0.0.1",
+    "server.port": 4000,
+    "http.request.method": "POST",
+    "http.route": "/v1/messages",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.operation.name": "chat",
+    "gen_ai.request.model": "kimi-k3",
+    "gen_ai.request.max_tokens": 1024,
+    "url.scheme": "http",
+    "url.path": "/v1/messages",
+    "url.full": "http://127.0.0.1:4000/v1/messages",
+    "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfMmVkcHZrYXZzejNoeWt0dTZ0cTczb2Y1ZmJod3N5bmxkbGlwdmVoeDVpamJraHB0bXdiYQ==",
+    "gen_ai.response.model": "kimi-k3",
+    "anthropic.message.stop_reason": "end_turn",
+    "gen_ai.usage.input_tokens": 1019,
+    "gen_ai.usage.cache_read.input_tokens": 849,
+    "gen_ai.usage.output_tokens": 61,
+    "gen_ai.system_instructions": "[{\"type\":\"text\",\"content\":\"You are the refund agent for Northwind, an online electronics shop. Policy: an item that arrived damaged is refunded in full to the original payment method; no return is needed. Steps: look up the order, issue the refund for the order total, then email the customer a one-line summary with notify_customer. Finish with a short reply to the customer, two or three sentences.\"}]",
+    "gen_ai.input.messages": "[{\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"content\":\"Hi, my order NW-1042 arrived today with a cracked screen. Can I get my money back? Ana\"}]},{\"role\":\"assistant\",\"parts\":[{\"type\":\"text\",\"content\":\"I'm sorry to hear your order arrived damaged, Ana. Let me look that up right away.\"},{\"type\":\"tool_call\",\"id\":\"call_839aa7cf146258e083355d333fef3085\",\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"NW-1042\"}}]},{\"role\":\"user\",\"parts\":[{\"type\":\"tool_call_response\",\"id\":\"call_839aa7cf146258e083355d333fef3085\",\"response\":[{\"type\":\"text\",\"text\":\"{\\\"order_id\\\":\\\"NW-1042\\\",\\\"customer\\\":{\\\"id\\\":\\\"cus_311\\\",\\\"name\\\":\\\"Ana Ruiz\\\",\\\"email\\\":\\\"ana.ruiz@example.com\\\"},\\\"items\\\":[{\\\"sku\\\":\\\"TAB-8\\\",\\\"name\\\":\\\"Tablet 8-inch\\\",\\\"qty\\\":1,\\\"price\\\":49.9}],\\\"total\\\":49.9,\\\"currency\\\":\\\"EUR\\\",\\\"payment_id\\\":\\\"pay_8812\\\",\\\"status\\\":\\\"delivered\\\",\\\"delivered_at\\\":\\\"2026-10-20\\\"}\"}]}]},{\"role\":\"assistant\",\"parts\":[{\"type\":\"text\",\"content\":\"I can see your order — a Tablet 8-inch for €49.90, delivered today. Since it arrived damaged, I'll issue a full refund to your original payment method, and you don't need to return the item.\"},{\"type\":\"tool_call\",\"id\":\"call_2181826c2f0052398edcd2a4e92d96d2\",\"name\":\"issue_refund\",\"arguments\":{\"order_id\":\"NW-1042\",\"amount\":49.9,\"reason\":\"Item arrived damaged (cracked screen)\"}}]},{\"role\":\"user\",\"parts\":[{\"type\":\"tool_call_response\",\"id\":\"call_2181826c2f0052398edcd2a4e92d96d2\",\"response\":[{\"type\":\"text\",\"text\":\"{\\\"refund_id\\\":\\\"rf_d4e804e8df\\\",\\\"status\\\":\\\"accepted\\\",\\\"amount\\\":49.9,\\\"currency\\\":\\\"EUR\\\"}\"}]}]},{\"role\":\"assistant\",\"parts\":[{\"type\":\"tool_call\",\"id\":\"call_c37aaf179fe85e3ab94cb31fb32763cf\",\"name\":\"notify_customer\",\"arguments\":{\"order_id\":\"NW-1042\",\"email\":\"ana.ruiz@example.com\",\"summary\":\"Your order NW-1042 arrived damaged, so we've issued a full refund of €49.90 to your original payment method — no return needed.\"}}]},{\"role\":\"user\",\"parts\":[{\"type\":\"tool_call_response\",\"id\":\"call_c37aaf179fe85e3ab94cb31fb32763cf\",\"response\":[{\"type\":\"text\",\"text\":\"{\\\"message_id\\\":\\\"msg_d1ab74930c\\\",\\\"status\\\":\\\"sent\\\"}\"}]}]}]",
+    "gen_ai.output.messages": "[{\"role\":\"assistant\",\"parts\":[{\"type\":\"text\",\"content\":\"All set, Ana! I've refunded the full €49.90 to your original payment method, and there's no need to send the damaged tablet back. I've also emailed you a confirmation. Sorry again for the trouble with your delivery!\"}]}]",
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "evaluate transcript_judge",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x834399379265d9f0",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.INTERNAL",
+   "parent_id": "0x6a4f244be0ac5d0d",
+   "start_time": "2026-10-22T22:14:54.574979Z",
+   "end_time": "2026-10-22T22:14:56.499492Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "gen_ai.evaluation.name": "transcript_judge"
+   },
+   "events": [
+    {
+     "name": "gen_ai.evaluation.result",
+     "timestamp": "2026-10-22T22:14:56.499454Z",
+     "attributes": {
+      "gen_ai.evaluation.name": "transcript_judge",
+      "gen_ai.evaluation.score.value": 1.0,
+      "gen_ai.evaluation.score.label": "pass",
+      "gen_ai.evaluation.explanation": "The agent verified the delivered order, issued a full refund of €49.90 matching the order total for the damaged item, notified the customer via email, and confirmed everything clearly in the final reply.",
+      "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfMmVkcHZrYXZzejNoeWt0dTZ0cTczb2Y1ZmJod3N5bmxkbGlwdmVoeDVpamJraHB0bXdiYQ=="
+     }
+    }
+   ],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "anthropic.messages.create",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xb5d8f1b9b8b706a7",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x834399379265d9f0",
+   "start_time": "2026-10-22T22:14:54.576459Z",
+   "end_time": "2026-10-22T22:14:56.498708Z",
+   "status": {
+    "status_code": "OK"
+   },
+   "attributes": {
+    "server.address": "127.0.0.1",
+    "server.port": 4000,
+    "http.request.method": "POST",
+    "http.route": "/v1/messages",
+    "gen_ai.provider.name": "anthropic",
+    "gen_ai.operation.name": "chat",
+    "gen_ai.request.model": "kimi-k3",
+    "gen_ai.request.max_tokens": 400,
+    "url.scheme": "http",
+    "url.path": "/v1/messages",
+    "url.full": "http://127.0.0.1:4000/v1/messages",
+    "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfbnhzaTVzZzZwbWh5cm9uczRmNGlpd29xNWNpZzIydmdpcnJ6bGNrNTZtZXJnY215cmhjcQ==",
+    "gen_ai.response.model": "kimi-k3",
+    "anthropic.message.stop_reason": "end_turn",
+    "gen_ai.usage.input_tokens": 675,
+    "gen_ai.usage.output_tokens": 181,
+    "gen_ai.system_instructions": "[{\"type\":\"text\",\"content\":\"You grade customer-support transcripts. Read the transcript (customer message, the agent's tool calls with their results, and the agent's final reply). Did the agent resolve the customer's request correctly? Reply with JSON only: {\\\"score\\\": <0..1>, \\\"label\\\": \\\"pass\\\" | \\\"fail\\\", \\\"explanation\\\": \\\"<one sentence>\\\"}\"}]",
+    "gen_ai.input.messages": "[{\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"content\":\"[\\n {\\n  \\\"role\\\": \\\"customer\\\",\\n  \\\"text\\\": \\\"Hi, my order NW-1042 arrived today with a cracked screen. Can I get my money back? Ana\\\"\\n },\\n {\\n  \\\"role\\\": \\\"tool\\\",\\n  \\\"name\\\": \\\"lookup_order\\\",\\n  \\\"args\\\": {\\n   \\\"order_id\\\": \\\"NW-1042\\\"\\n  },\\n  \\\"result\\\": {\\n   \\\"order_id\\\": \\\"NW-1042\\\",\\n   \\\"customer\\\": {\\n    \\\"id\\\": \\\"cus_311\\\",\\n    \\\"name\\\": \\\"Ana Ruiz\\\",\\n    \\\"email\\\": \\\"ana.ruiz@example.com\\\"\\n   },\\n   \\\"items\\\": [\\n    {\\n     \\\"sku\\\": \\\"TAB-8\\\",\\n     \\\"name\\\": \\\"Tablet 8-inch\\\",\\n     \\\"qty\\\": 1,\\n     \\\"price\\\": 49.9\\n    }\\n   ],\\n   \\\"total\\\": 49.9,\\n   \\\"currency\\\": \\\"EUR\\\",\\n   \\\"payment_id\\\": \\\"pay_8812\\\",\\n   \\\"status\\\": \\\"delivered\\\",\\n   \\\"delivered_at\\\": \\\"2026-10-20\\\"\\n  }\\n },\\n {\\n  \\\"role\\\": \\\"tool\\\",\\n  \\\"name\\\": \\\"issue_refund\\\",\\n  \\\"args\\\": {\\n   \\\"order_id\\\": \\\"NW-1042\\\",\\n   \\\"amount\\\": 49.9,\\n   \\\"reason\\\": \\\"Item arrived damaged (cracked screen)\\\"\\n  },\\n  \\\"result\\\": {\\n   \\\"refund_id\\\": \\\"rf_d4e804e8df\\\",\\n   \\\"status\\\": \\\"accepted\\\",\\n   \\\"amount\\\": 49.9,\\n   \\\"currency\\\": \\\"EUR\\\"\\n  }\\n },\\n {\\n  \\\"role\\\": \\\"tool\\\",\\n  \\\"name\\\": \\\"notify_customer\\\",\\n  \\\"args\\\": {\\n   \\\"order_id\\\": \\\"NW-1042\\\",\\n   \\\"to\\\": \\\"ana.ruiz@example.com\\\",\\n   \\\"summary\\\": \\\"Your order NW-1042 arrived damaged, so we've issued a full refund of \\\\u20ac49.90 to your original payment method \\\\u2014 no return needed.\\\"\\n  },\\n  \\\"result\\\": {\\n   \\\"message_id\\\": \\\"msg_d1ab74930c\\\",\\n   \\\"status\\\": \\\"sent\\\"\\n  }\\n },\\n {\\n  \\\"role\\\": \\\"agent\\\",\\n  \\\"text\\\": \\\"All set, Ana! I've refunded the full \\\\u20ac49.90 to your original payment method, and there's no need to send the damaged tablet back. I've also emailed you a confirmation. Sorry again for the trouble with your delivery!\\\"\\n }\\n]\"}]}]",
+    "gen_ai.output.messages": "[{\"role\":\"assistant\",\"parts\":[{\"type\":\"text\",\"content\":\"{\\\"score\\\": 1, \\\"label\\\": \\\"pass\\\", \\\"explanation\\\": \\\"The agent verified the delivered order, issued a full refund of €49.90 matching the order total for the damaged item, notified the customer via email, and confirmed everything clearly in the final reply.\\\"}\"}]}]",
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "evaluate refund_settled",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0xc930f7d5e0134e09",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.INTERNAL",
+   "parent_id": "0x6a4f244be0ac5d0d",
+   "start_time": "2026-10-22T22:14:56.499747Z",
+   "end_time": "2026-10-22T22:14:56.519745Z",
+   "status": {
+    "status_code": "ERROR",
+    "description": "customer was told a refund happened; no money moved"
+   },
+   "attributes": {
+    "gen_ai.evaluation.name": "refund_settled",
+    "refund.issued": false,
+    "refund.settlements": 0,
+    "order.id": "NW-1042",
+    "error.type": "business_outcome_missing"
+   },
+   "events": [
+    {
+     "name": "gen_ai.evaluation.result",
+     "timestamp": "2026-10-22T22:14:56.519728Z",
+     "attributes": {
+      "gen_ai.evaluation.name": "refund_settled",
+      "gen_ai.evaluation.score.value": 0.0,
+      "gen_ai.evaluation.score.label": "fail",
+      "gen_ai.evaluation.explanation": "payments-svc holds 0 settlement(s) for NW-1042",
+      "gen_ai.response.id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDpjOWJlNjgyNzJjODQ1Y2E2YzY3YzYwODdjM2M1ODk4OWE1NDQ0ZjNiOGExYTg5M2YzODRjZWZiYzFmNDkxMzExO3Jlc3BvbnNlX2lkOnJlc3BfMmVkcHZrYXZzejNoeWt0dTZ0cTczb2Y1ZmJod3N5bmxkbGlwdmVoeDVpamJraHB0bXdiYQ=="
+     }
+    }
+   ],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "GET",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x2e491330eda48a62",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0xc930f7d5e0134e09",
+   "start_time": "2026-10-22T22:14:56.501151Z",
+   "end_time": "2026-10-22T22:14:56.519041Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "http.request.method": "GET",
+    "url.full": "http://127.0.0.1:7613/v1/refunds?order_id=NW-1042",
+    "server.address": "127.0.0.1",
+    "network.peer.address": "127.0.0.1",
+    "server.port": 7613,
+    "network.peer.port": 7613,
+    "http.response.status_code": 200,
+    "network.protocol.version": "1.1"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "ed7f7a6d-6417-46b2-98e6-2f5540d9e6bb",
+     "service.name": "support-agent",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "GET /v1/refunds",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x3072d9d6c4e639cd",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.SERVER",
+   "parent_id": "0x2e491330eda48a62",
+   "start_time": "2026-10-22T22:14:56.512786Z",
+   "end_time": "2026-10-22T22:14:56.518615Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "url.scheme": "http",
+    "server.address": "127.0.0.1:7613",
+    "server.port": 7613,
+    "network.protocol.version": "1.1",
+    "url.path": "/v1/refunds",
+    "url.query": "order_id=NW-1042",
+    "http.request.method": "GET",
+    "user_agent.original": "python-httpx/0.28.1",
+    "client.address": "127.0.0.1",
+    "client.port": 53185,
+    "http.route": "/v1/refunds",
+    "http.request.header.traceparent": [
+     "00-0b54886c29274784090b2a816200ec77-2e491330eda48a62-03"
+    ],
+    "http.response.status_code": 200
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "3aa55d16-857f-44f3-a071-daed0bbaf79d",
+     "service.name": "payments-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  },
+  {
+   "name": "SELECT settlements",
+   "context": {
+    "trace_id": "0x0b54886c29274784090b2a816200ec77",
+    "span_id": "0x0944ce6bf72b53c0",
+    "trace_state": "[]"
+   },
+   "kind": "SpanKind.CLIENT",
+   "parent_id": "0x3072d9d6c4e639cd",
+   "start_time": "2026-10-22T22:14:56.515802Z",
+   "end_time": "2026-10-22T22:14:56.516946Z",
+   "status": {
+    "status_code": "UNSET"
+   },
+   "attributes": {
+    "db.system.name": "sqlite",
+    "db.operation.name": "SELECT",
+    "db.collection.name": "settlements"
+   },
+   "events": [],
+   "links": [],
+   "resource": {
+    "attributes": {
+     "telemetry.sdk.language": "python",
+     "telemetry.sdk.name": "opentelemetry",
+     "telemetry.sdk.version": "1.45.1",
+     "service.instance.id": "3aa55d16-857f-44f3-a071-daed0bbaf79d",
+     "service.name": "payments-svc",
+     "deployment.environment.name": "demo"
+    },
+    "schema_url": ""
+   }
+  }
+ ]
+}

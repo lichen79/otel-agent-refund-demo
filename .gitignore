@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+out/*/
+!out/trace-fault.json
+!out/trace-healthy.json
+!out/attribution.json
+.DS_Store
